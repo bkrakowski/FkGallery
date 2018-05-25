@@ -99,7 +99,7 @@ extension PhotoItemPresenterImpl: PhotoItemPresenter {
     }
     
     func openLink() {
-        guard let item = item else { return }
+        guard canOpenLink(), let item = item else { return }
         
         if let url = URL(string: item.link) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)

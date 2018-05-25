@@ -15,10 +15,6 @@ class PhotoViewCell: UITableViewCell {
     @IBOutlet weak var tagsLabel: UILabel?
     
     static let identifier = "PhotoViewCell"
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 }
 
 

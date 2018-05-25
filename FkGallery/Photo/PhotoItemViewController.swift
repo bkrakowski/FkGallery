@@ -108,6 +108,8 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
         photoItemPresenter?.openLink()
     }
     
+    // TODO: Saving images is a seperate feature. Move it out of the view.
+    
     @objc func imagePressed() {
         let alertController = UIAlertController(title: NSLocalizedString("Please select photo action", comment: ""), message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Save to Photo Library", comment: ""), style: .default, handler: { (action) in

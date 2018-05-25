@@ -23,7 +23,7 @@ protocol PhotoGalleryPresenter {
     var photoItemsSource: PhotoItemsSourceObservable { get } // KVO this
     
     func queryPhotoItems(searchText: String?, asLazySearch: Bool?)
-    func showPhotoItemDetail(item: PhotoItem)
+    func presentPhotoItemDetailScene(item: PhotoItem)
 }
 
 // PhotoItemsSourceObservable supports KVO
@@ -32,7 +32,7 @@ class PhotoItemsSourceObservable: NSObject {
 }
 
 // Represents a model fed to the view
-class PhotoItemsQueried: NSObject {
+class PhotoItemsQueried: NSObject /* for KVO */ {
     enum State {
         case querying
         case ready

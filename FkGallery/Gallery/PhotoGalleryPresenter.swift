@@ -47,7 +47,7 @@ extension PhotoGalleryPresenterImpl: PhotoGalleryPresenter {
         return self
     }
     
-    func showPhotoItemDetail(item: PhotoItem) {
+    func presentPhotoItemDetailScene(item: PhotoItem) {
         guard let photoGalleryView = photoGalleryView else { return }
         
         photoGalleryWire?.presentPhotoItemDetailScene(for: photoGalleryView, item: item)
