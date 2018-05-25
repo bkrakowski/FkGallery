@@ -10,6 +10,7 @@ import Foundation
 
 
 class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
+    // photosService is VIPER interactor
     private var photosService: PhotosServiceAPI?
     var photoGalleryWire: PhotoGalleryWire?
     weak var photoGalleryView: PhotoGalleryView?
