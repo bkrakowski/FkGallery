@@ -49,7 +49,8 @@ class PhotoCellPresenterImpl: PhotoCellPresenter {
         cellView.updateTagsLabel(
             text: item.tags.count > 0 ?
                 attributedPara(title: NSLocalizedString("Tags", comment: ""), text: item.tags) :
-                attributedPlaceholder(string: NSLocalizedString("No Tags", comment: "")))
+                attributedPlaceholder(string: NSLocalizedString("No Tags", comment: ""))
+        )
     }
     
     private func attributedPara(title: String, text: String) -> NSAttributedString {

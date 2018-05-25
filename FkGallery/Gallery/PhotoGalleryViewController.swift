@@ -12,7 +12,7 @@ import SVProgressHUD
 class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
     @IBOutlet weak var searchBar: UISearchBar?
     @IBOutlet weak var tableView: UITableView?
-    private var messagePresenter: MessagePresenting?
+    private var textMessageOverlay: TextMessageOverlay?
     
     var photoGalleryPresenter: PhotoGalleryPresenter?
     var photoCellPresenter: PhotoCellPresenter?
@@ -41,9 +41,9 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
         guard let target = photoGalleryPresenter?.photoItemsSource else { return }
         typealias targetType = PhotoItemsSourceObservable
         
-        disposeBag.append(target.observe(\targetType.photoItemsQueried, options: [.initial, .new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoItemsQueried, options: [.initial, .new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.updateView(photoItemsQueried: newValue)
+                self?.updateView(photoItemsQueried: newValue)
             }
         })
     }
@@ -60,7 +60,7 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
         refreshControl.isAccessibilityElement = true
         refreshControl.addTarget(self, action: #selector(refreshPhotoItems), for: .valueChanged)
         
-        messagePresenter = MessageView.create(in: self.view)
+        textMessageOverlay = MessageView.create(in: self.view)
         
         let tapHideKeyboard = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapHideKeyboard.cancelsTouchesInView = false
@@ -78,7 +78,7 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
     private func updateView(photoItemsQueried: PhotoItemsQueried) {
         switch photoItemsQueried.state {
         case .querying:
-            messagePresenter?.update(nil)
+            textMessageOverlay?.updateText(nil)
             
             if self.refreshControl.isRefreshing == false {
                 SVProgressHUD.show()
@@ -90,9 +90,9 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
             self.tableView?.reloadData()
             
             if let error = photoItemsQueried.error {
-                messagePresenter?.update(error.localizedDescription)
+                textMessageOverlay?.updateText(error.localizedDescription)
             } else {
-                messagePresenter?.update(nil)
+                textMessageOverlay?.updateText(nil)
             }
         }
     }
@@ -100,7 +100,6 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
 
 // TODO: consider using RxSwift and RxCocoa for the reactive table handling
 extension PhotoGalleryViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let photoItems = photoGalleryPresenter?.photoItemsSource.photoItemsQueried.photoItems {
             return photoItems.count

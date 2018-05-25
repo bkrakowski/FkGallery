@@ -48,6 +48,4 @@ extension PhotoViewCell: PhotoCellView {
         tagsLabel?.attributedText = text
         tagsLabel?.accessibilityValue = text?.string
     }
-    
-    
 }

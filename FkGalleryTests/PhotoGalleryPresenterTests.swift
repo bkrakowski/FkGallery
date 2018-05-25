@@ -52,7 +52,7 @@ class PhotoGalleryPresenterTests: XCTestCase {
         
         typealias targetType = PhotoItemsSourceObservable
         
-        disposeBag.append(presenter.photoItemsSource.observe(\targetType.photoItemsQueried, options: [.new]) { (target, change) in
+        disposeBag.append(presenter.photoItemsSource.observe(\targetType.photoItemsQueried, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
                 self.photoItemsQueried = newValue
                 if newValue.state == .ready {
@@ -86,7 +86,7 @@ class PhotoGalleryPresenterTests: XCTestCase {
         
         typealias targetType = PhotoItemsSourceObservable
         
-        disposeBag.append(presenter.photoItemsSource.observe(\targetType.photoItemsQueried, options: [.new]) { (target, change) in
+        disposeBag.append(presenter.photoItemsSource.observe(\targetType.photoItemsQueried, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
                 self.photoItemsQueried = newValue
                 if newValue.state == .ready {
@@ -122,7 +122,7 @@ class PhotoGalleryPresenterTests: XCTestCase {
         
         typealias targetType = PhotoItemsSourceObservable
         
-        disposeBag.append(presenter.photoItemsSource.observe(\targetType.photoItemsQueried, options: [.new]) { (target, change) in
+        disposeBag.append(presenter.photoItemsSource.observe(\targetType.photoItemsQueried, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
                 self.photoItemsQueried = newValue
                 if newValue.state == .ready {

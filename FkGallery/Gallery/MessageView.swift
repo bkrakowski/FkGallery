@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol MessagePresenting {
-    func update(_ messageText: String?)
+protocol TextMessageOverlay {
+    func updateText(_ messageText: String?)
 }
 
 class MessageView: UIView {
@@ -18,7 +18,7 @@ class MessageView: UIView {
     @IBOutlet weak var messageViewWidth: NSLayoutConstraint?
     @IBOutlet weak var messageViewHeight: NSLayoutConstraint?
 
-    static func create(in view: UIView) -> MessagePresenting? {
+    static func create(in view: UIView) -> TextMessageOverlay? {
         if let messageView = Bundle.main.loadNibNamed("MessageView", owner: self, options: nil)?.first as? MessageView {
             view.addSubview(messageView)
             centerInSuperview(messageView: messageView)
@@ -39,8 +39,8 @@ class MessageView: UIView {
     }
 }
 
-extension MessageView: MessagePresenting {
-    func update(_ messageText: String?) {
+extension MessageView: TextMessageOverlay {
+    func updateText(_ messageText: String?) {
         if let messageLabel = self.messageLabel, let messageView = self.messageView {
             messageLabel.text = messageText
             messageView.isHidden = messageText == nil || messageText!.count == 0

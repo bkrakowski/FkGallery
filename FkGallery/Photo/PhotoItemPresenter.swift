@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class PhotoItemPresenterImpl: PhotoItemSourceObservable {
     var photoItemWire: PhotoItemWire?
     private var item: PhotoItem?
@@ -61,6 +60,7 @@ class PhotoItemPresenterImpl: PhotoItemSourceObservable {
     }
     
     private func matchAuthor(author: String) -> String {
+        // e.g. "nobody@flickr.com (\"haddock16\")"
         if let start = author.range(of: "(\""), let stop = author.range(of: "\")") {
             let cleanAuthor = author[start.upperBound..<stop.lowerBound]
             return String(cleanAuthor)

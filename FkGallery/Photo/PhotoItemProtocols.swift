@@ -8,18 +8,18 @@
 
 import Foundation
 
-// Wires photo item components together and the Router for scenes.
+// Wires photo item components together and acts as the Router for scenes.
 protocol PhotoItemWire: class {
     static func createPhotoItemScene(item: PhotoItem) -> PhotoItemView
 }
 
-// Abstration of the photo items view
+// Abstraction of the photo item view
 protocol PhotoItemView: class {
 }
 
 // Photo item Presenter
 protocol PhotoItemPresenter: class {
-    var photoItemSource: PhotoItemSourceObservable? { get }
+    var photoItemSource: PhotoItemSourceObservable? { get } // KVO this
     
     func canOpenLink() -> Bool
     func openLink()

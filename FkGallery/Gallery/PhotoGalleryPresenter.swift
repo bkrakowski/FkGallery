@@ -10,11 +10,10 @@ import Foundation
 
 
 class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
-    // photosService is VIPER interactor
-    private var photosService: PhotosServiceAPI?
     var photoGalleryWire: PhotoGalleryWire?
     weak var photoGalleryView: PhotoGalleryView?
     
+    private var photosService: PhotosServiceAPI? // a VIPER interactor
     private var searchDispatchWorkItem: DispatchWorkItem?
     
     init(photosService: PhotosServiceAPI) {
@@ -24,8 +23,10 @@ class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
     private func queryPhotoItemsNow(searchText: String?) {
         guard let photosService = photosService else { return }
         
+        let existingItems = self.photoItemsQueried.photoItems
+        
         DispatchQueue.main.async {
-            self.photoItemsQueried = PhotoItemsQueried(state: .querying, photoItems: self.photoItemsQueried.photoItems, error: nil)
+            self.photoItemsQueried = PhotoItemsQueried(state: .querying, photoItems: existingItems, error: nil)
         }
         
         photosService.queryPhotos(tag: searchText) {
@@ -35,7 +36,7 @@ class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
             case .success (let photoItems):
                 self.photoItemsQueried = PhotoItemsQueried(state: .ready, photoItems: photoItems, error: nil)
             case .failure (let error):
-                self.photoItemsQueried = PhotoItemsQueried(state: .ready, photoItems: self.photoItemsQueried.photoItems, error: error)
+                self.photoItemsQueried = PhotoItemsQueried(state: .ready, photoItems: existingItems, error: error)
             }
         }
     }
@@ -60,7 +61,9 @@ extension PhotoGalleryPresenterImpl: PhotoGalleryPresenter {
                 self.queryPhotoItemsNow(searchText: searchText)
             }
             
-            DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: searchDispatchWorkItem!)
+            if let searchDispatchWorkItem = searchDispatchWorkItem {
+                DispatchQueue.global().asyncAfter(deadline: .now() + 0.5, execute: searchDispatchWorkItem)
+            }
         } else {
             DispatchQueue.global().async {
                 self.queryPhotoItemsNow(searchText: searchText)

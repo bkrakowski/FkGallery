@@ -4,13 +4,13 @@ This simple sample Swift 4.1 app previews Public Flickr Photo Feed. The code dem
 ## Summary
 This sample app uses Flickr public image feed API https://www.flickr.com/services/feeds/docs/photos_public and displays the 20 latest published feeds.
 
-## Features:
+## Features
 1. Displays (in table view) image previews with selected image meta data.
 2. Provides image detail view with the ability to open the original image link in flickr safari page, and saves image to user's photo library.
 3. Searches images by image Tags.
 4. Refreshes feeds via the refresh control.
 
-## Notes:
+## Notes
 1. Implementation inspired by the VIPER pattern (View, Interactor as PhotosServiceAPI, Presenter, Entity, and Router as the Wire) with a twist: the presenter is not updating the views directly, but exposes the data source as KVO observable. 
 Alternatively instead of  the KVO, RxCocoa and RxSwift could have been used. 
 2. Image caching provided by taking advantage of AlamofireImage pod.

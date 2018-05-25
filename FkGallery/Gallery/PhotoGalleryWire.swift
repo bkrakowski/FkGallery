@@ -11,7 +11,7 @@ import UIKit
 
 class PhotoGalleryWireImpl: PhotoGalleryWire {
     
-    static func createPhotoGalleryScene() -> PhotoGalleryView? {
+    static func createPhotoGalleryScene() -> PhotoGalleryView {
         let photoGalleryViewController = PhotoGalleryViewController(nibName: "PhotoGalleryViewController", bundle: nil)
         let photosService = PhotosServiceImpl(restService: RestServiceImpl())
         let photoGalleryPresenter = PhotoGalleryPresenterImpl(photosService: photosService)

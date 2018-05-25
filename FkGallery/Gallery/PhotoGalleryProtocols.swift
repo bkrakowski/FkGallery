@@ -8,19 +8,19 @@
 
 import Foundation
 
-// Wires galery components together and the Router for scenes.
+// Wires galery components together and acts as the Router for scenes.
 protocol PhotoGalleryWire: class {
-    static func createPhotoGalleryScene() -> PhotoGalleryView?
+    static func createPhotoGalleryScene() -> PhotoGalleryView
     func presentPhotoItemDetailScene(for view: PhotoGalleryView, item: PhotoItem);
 }
 
-// Abstration of the galery view
+// Abstraction of the galery view
 protocol PhotoGalleryView: class {
 }
 
 // Gallery Presenter
 protocol PhotoGalleryPresenter {
-    var photoItemsSource: PhotoItemsSourceObservable { get }
+    var photoItemsSource: PhotoItemsSourceObservable { get } // KVO this
     
     func queryPhotoItems(searchText: String?, asLazySearch: Bool?)
     func showPhotoItemDetail(item: PhotoItem)
@@ -31,7 +31,7 @@ class PhotoItemsSourceObservable: NSObject {
     @objc dynamic var photoItemsQueried: PhotoItemsQueried = PhotoItemsQueried(state: .ready, photoItems: [], error: nil)
 }
 
-// Represents model fed to the view
+// Represents a model fed to the view
 class PhotoItemsQueried: NSObject {
     enum State {
         case querying

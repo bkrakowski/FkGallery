@@ -56,9 +56,9 @@ class PhotoItemPresenterTests: XCTestCase {
         let expectRaw = XCTestExpectation(description: "Raw")
         expects.append(expectRaw)
         
-        disposeBag.append(target.observe(\targetType.rawAuthor, options: [.new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.rawAuthor, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.rawAuthor = newValue
+                self?.rawAuthor = newValue
                 expectRaw.fulfill()
             }
         })
@@ -66,9 +66,9 @@ class PhotoItemPresenterTests: XCTestCase {
         let expectUrl = XCTestExpectation(description: "Url")
         expects.append(expectUrl)
         
-        disposeBag.append(target.observe(\targetType.photoUrl, options: [.new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoUrl, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.photoUrl = newValue
+                self?.photoUrl = newValue
                 expectUrl.fulfill()
             }
         })
@@ -76,9 +76,9 @@ class PhotoItemPresenterTests: XCTestCase {
         let expectTitle = XCTestExpectation(description: "Title")
         expects.append(expectTitle)
         
-        disposeBag.append(target.observe(\targetType.photoTitle, options: [.new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoTitle, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.photoTitle = newValue
+                self?.photoTitle = newValue
                 expectTitle.fulfill()
             }
         })
@@ -86,9 +86,9 @@ class PhotoItemPresenterTests: XCTestCase {
         let expectAuthor = XCTestExpectation(description: "Author")
         expects.append(expectAuthor)
         
-        disposeBag.append(target.observe(\targetType.photoAuthor, options: [.new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoAuthor, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.photoAuthor = newValue
+                self?.photoAuthor = newValue
                 expectAuthor.fulfill()
             }
         })
@@ -96,9 +96,9 @@ class PhotoItemPresenterTests: XCTestCase {
         let expectTaken = XCTestExpectation(description: "Taken")
         expects.append(expectTaken)
         
-        disposeBag.append(target.observe(\targetType.photoTakenDate, options: [.new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoTakenDate, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.photoTakenDate = newValue
+                self?.photoTakenDate = newValue
                 expectTaken.fulfill()
             }
         })
@@ -106,9 +106,9 @@ class PhotoItemPresenterTests: XCTestCase {
         let expectPub = XCTestExpectation(description: "Pub")
         expects.append(expectPub)
         
-        disposeBag.append(target.observe(\targetType.photoPublishedDate, options: [.new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoPublishedDate, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.photoPublishedDate = newValue
+                self?.photoPublishedDate = newValue
                 expectPub.fulfill()
             }
         })
@@ -116,9 +116,9 @@ class PhotoItemPresenterTests: XCTestCase {
         let expectTags = XCTestExpectation(description: "Tags")
         expects.append(expectTags)
         
-        disposeBag.append(target.observe(\targetType.photoTags, options: [.new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoTags, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.photoTags = newValue
+                self?.photoTags = newValue
                 expectTags.fulfill()
             }
         })

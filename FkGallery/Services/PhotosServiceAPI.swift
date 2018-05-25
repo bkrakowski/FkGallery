@@ -27,7 +27,6 @@ class PhotosServiceImpl: PhotosServiceAPI {
     }
     
     func queryPhotos(tag: String?, closure: @escaping (PhotosResponse) -> Void) {
-    
         var params: [String: Any] = [
             "format": "json",
             "nojsoncallback": 1
@@ -50,6 +49,7 @@ class PhotosServiceImpl: PhotosServiceAPI {
         )
         
         var items: [PhotoItem] = []
+    
         restService.hit(endpoint: endpoint) {
             response in
             switch response {

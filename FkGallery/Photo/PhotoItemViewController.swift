@@ -17,7 +17,6 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
     @IBOutlet weak var takenDateLabel: UILabel?
     @IBOutlet weak var publishedDateLabel: UILabel?
     @IBOutlet weak var tagsLabel: UILabel?
-    
     @IBOutlet weak var openLinkButton: UIButton?
     
     var photoItemPresenter: PhotoItemPresenter?
@@ -29,12 +28,6 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
         
         title = NSLocalizedString("Photo", comment: "")
         
-        if let photoItemPresenter = photoItemPresenter {
-            if let author = photoItemPresenter.photoItemSource?.rawAuthor {
-                title = author.capitalizingFirstLetter() + NSLocalizedString("' Photo", comment: "Authors photo title")
-            }
-        }
-        
         configureView()
         observePresenter()
     }
@@ -43,49 +36,55 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
         guard let target = photoItemPresenter?.photoItemSource else { return }
         typealias targetType = PhotoItemSourceObservable
         
-        disposeBag.append(target.observe(\targetType.photoUrl, options: [.initial, .new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoUrl, options: [.initial, .new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.updateImage(url: newValue)
+                self?.updateImage(url: newValue)
             }
         })
         
-        disposeBag.append(target.observe(\targetType.photoTitle, options: [.initial, .new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoTitle, options: [.initial, .new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.titleLabel?.attributedText = newValue
-                self.titleLabel?.accessibilityValue = newValue?.string
+                self?.titleLabel?.attributedText = newValue
+                self?.titleLabel?.accessibilityValue = newValue?.string
             }
         })
         
-        disposeBag.append(target.observe(\targetType.photoAuthor, options: [.initial, .new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoAuthor, options: [.initial, .new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.authorLabel?.attributedText = newValue
-                self.authorLabel?.accessibilityValue = newValue?.string
+                self?.authorLabel?.attributedText = newValue
+                self?.authorLabel?.accessibilityValue = newValue?.string
             }
         })
         
-        disposeBag.append(target.observe(\targetType.photoTakenDate, options: [.initial, .new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoTakenDate, options: [.initial, .new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.takenDateLabel?.attributedText = newValue
-                self.takenDateLabel?.accessibilityValue = newValue?.string
+                self?.takenDateLabel?.attributedText = newValue
+                self?.takenDateLabel?.accessibilityValue = newValue?.string
             }
         })
         
-        disposeBag.append(target.observe(\targetType.photoPublishedDate, options: [.initial, .new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoPublishedDate, options: [.initial, .new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.publishedDateLabel?.attributedText = newValue
-                self.publishedDateLabel?.accessibilityValue = newValue?.string
+                self?.publishedDateLabel?.attributedText = newValue
+                self?.publishedDateLabel?.accessibilityValue = newValue?.string
             }
         })
 
-        disposeBag.append(target.observe(\targetType.photoTags, options: [.initial, .new]) { (target, change) in
+        disposeBag.append(target.observe(\targetType.photoTags, options: [.initial, .new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.tagsLabel?.attributedText = newValue
-                self.tagsLabel?.accessibilityValue = newValue?.string
+                self?.tagsLabel?.attributedText = newValue
+                self?.tagsLabel?.accessibilityValue = newValue?.string
             }
         })
     }
     
     private func configureView() {
+        if let photoItemPresenter = photoItemPresenter {
+            if let author = photoItemPresenter.photoItemSource?.rawAuthor {
+                title = author.capitalizingFirstLetter() + NSLocalizedString("' Photo", comment: "Authors photo title")
+            }
+        }
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         openLinkButton?.applySimpleBorderStyle()
