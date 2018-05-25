@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoGalleryViewController" customModule="FkGallery" customModuleProvider="target">
+            <connections>
+                <outlet property="searchBar" destination="us1-uZ-G9d" id="vN5-qe-3WV"/>
+                <outlet property="tableView" destination="OLK-i2-Asn" id="hVI-43-cUc"/>
+                <outlet property="view" destination="6BC-B0-z8x" id="ffH-iY-Fse"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="6BC-B0-z8x">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by Tag" translatesAutoresizingMaskIntoConstraints="NO" id="us1-uZ-G9d">
+                    <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="flx-pV-eDp"/>
+                    </connections>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="184" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OLK-i2-Asn">
+                    <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="separatorInset" minX="188" minY="0.0" maxX="4" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="0ZD-JA-Vyz"/>
+                        <outlet property="delegate" destination="-1" id="L28-CQ-hFV"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <accessibility key="accessibilityConfiguration" hint="Photo Gallery" identifier="Gallery" label="Gallery">
+                <bool key="isElement" value="NO"/>
+            </accessibility>
+            <constraints>
+                <constraint firstItem="OLK-i2-Asn" firstAttribute="top" secondItem="us1-uZ-G9d" secondAttribute="bottom" id="4Hx-Mj-8g4"/>
+                <constraint firstItem="nkr-ub-G0o" firstAttribute="trailing" secondItem="OLK-i2-Asn" secondAttribute="trailing" id="D3a-b1-cab"/>
+                <constraint firstItem="us1-uZ-G9d" firstAttribute="trailing" secondItem="nkr-ub-G0o" secondAttribute="trailing" id="QXl-nS-mpQ"/>
+                <constraint firstItem="us1-uZ-G9d" firstAttribute="leading" secondItem="nkr-ub-G0o" secondAttribute="leading" id="SWi-YZ-ihw"/>
+                <constraint firstItem="us1-uZ-G9d" firstAttribute="top" secondItem="nkr-ub-G0o" secondAttribute="top" id="T9P-6E-FNu"/>
+                <constraint firstItem="OLK-i2-Asn" firstAttribute="leading" secondItem="nkr-ub-G0o" secondAttribute="leading" id="hLD-ON-bd2"/>
+                <constraint firstItem="nkr-ub-G0o" firstAttribute="bottom" secondItem="OLK-i2-Asn" secondAttribute="bottom" id="nN3-uR-Ibg"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="nkr-ub-G0o"/>
+        </view>
+    </objects>
+</document>

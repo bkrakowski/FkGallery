@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoViewCell" rowHeight="184" id="KGk-i7-Jjw" customClass="PhotoViewCell" customModule="FkGallery" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="188"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="387" height="187.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lZg-Kz-zpk">
+                        <rect key="frame" x="4" y="4" width="180" height="180"/>
+                        <accessibility key="accessibilityConfiguration" hint="Photo" identifier="Photo" label="Photo"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="180" id="Ked-3x-RNz"/>
+                            <constraint firstAttribute="height" constant="180" id="eXf-GY-Ahv"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mAQ-ZS-78J">
+                        <rect key="frame" x="196" y="19" width="175" height="64"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fq-GR-uxs">
+                                <rect key="frame" x="0.0" y="0.0" width="175" height="16"/>
+                                <accessibility key="accessibilityConfiguration" hint="Title" identifier="Title" label="Title">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taken on" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwV-jX-qBY">
+                                <rect key="frame" x="0.0" y="24" width="175" height="16"/>
+                                <accessibility key="accessibilityConfiguration" hint="Taken Date" identifier="Taken Date" label="Taken Date">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Fw-Mr-d23">
+                                <rect key="frame" x="0.0" y="48" width="175" height="16"/>
+                                <accessibility key="accessibilityConfiguration" hint="Tags" identifier="Tags" label="Tags">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="mAQ-ZS-78J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="EFa-gB-kA5"/>
+                    <constraint firstItem="mAQ-ZS-78J" firstAttribute="leading" secondItem="lZg-Kz-zpk" secondAttribute="trailing" constant="12" id="KwL-fH-SKf"/>
+                    <constraint firstItem="lZg-Kz-zpk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="YlF-Ke-wG1"/>
+                    <constraint firstItem="lZg-Kz-zpk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="diR-Mm-Fp6"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="mAQ-ZS-78J" secondAttribute="trailing" constant="-4" id="k5t-MG-vmx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <accessibility key="accessibilityConfiguration" hint="Photo Cell" identifier="Photo" label="Photo">
+                <bool key="isElement" value="YES"/>
+            </accessibility>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="photoView" destination="lZg-Kz-zpk" id="PoL-M1-jsQ"/>
+                <outlet property="tagsLabel" destination="1Fw-Mr-d23" id="jIh-io-q45"/>
+                <outlet property="takenDateLabel" destination="dwV-jX-qBY" id="vEn-Uv-Wvj"/>
+                <outlet property="titleLabel" destination="2Fq-GR-uxs" id="Lrk-E9-DnP"/>
+            </connections>
+            <point key="canvasLocation" x="58.5" y="129"/>
+        </tableViewCell>
+    </objects>
+</document>
