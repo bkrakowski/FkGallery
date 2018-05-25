@@ -12,8 +12,8 @@ This sample app uses Flickr public image feed API https://www.flickr.com/service
 
 ## Notes:
 1. Implementation inspired by the VIPER pattern (View, Interactor as PhotosServiceAPI, Presenter, and Router as the Wire) with a twist: the presenter is not updating the views directly, but exposes the data source as KVO observable. 
-Alternatively instead of KVO, RxCocoa and RxSwift could have been used instead. 
-2. Image caching is provided by taking advantage of AlamofireImage pod
+Alternatively instead of  the KVO, RxCocoa and RxSwift could have been used instead. 
+2. Image caching is provided by taking advantage of AlamofireImage pod.
 3. Provided Unit Tests for the functionality, and UI Unit Tests for testing the full app with the UI layer.
 
 ## Requirements
@@ -34,7 +34,7 @@ $ gem install cocoapods
 
 > CocoaPods 1.1+ is required to build FkGallery+.
 
-Then, run the following command:
+Then, run the following command in the project root directory:
 
 ```bash
 $ pod install
