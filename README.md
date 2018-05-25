@@ -40,7 +40,7 @@ Then, run the following command in the project root directory:
 $ pod install
 ```
 
-Then, reopen the FkGallery solution file. 
+Then, reopen the FkGallery workspace file. 
 
 ## License
 
