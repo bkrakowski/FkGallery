@@ -24,6 +24,7 @@ protocol PhotoGalleryPresenter {
     var photoItemsSource: PhotoItemsSourceObservable { get } // KVO this
     
     func queryPhotoItems(searchText: String?, asLazySearch: Bool?)
+    func clearFollowedAuthor()
     func presentPhotoItemDetailScene(item: PhotoItem)
     func dismissPhotoItemDetailScene(for view: PhotoGalleryView)
 }
@@ -31,7 +32,7 @@ protocol PhotoGalleryPresenter {
 // PhotoItemsSourceObservable supports KVO
 class PhotoItemsSourceObservable: NSObject {
     @objc dynamic var photoItemsQueried: PhotoItemsQueried = PhotoItemsQueried(state: .ready, photoItems: [], error: nil)
-    @objc dynamic var followAuthor: FollowAuthor?
+    @objc dynamic var followAuthor: FollowAuthor = FollowAuthor(authorId: nil, name: nil)
 }
 
 // Represents a model fed to the view
@@ -54,10 +55,10 @@ class PhotoItemsQueried: NSObject /* for KVO */ {
 
 // Represents followed author
 class FollowAuthor: NSObject /* for KVO */ {
-    let authorId: String
-    let name: String
+    let authorId: String?
+    let name: String?
     
-    init(authorId: String, name: String) {
+    init(authorId: String?, name: String?) {
         self.authorId = authorId
         self.name = name
     }

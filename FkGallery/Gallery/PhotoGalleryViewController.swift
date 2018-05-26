@@ -50,12 +50,12 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
         
         disposeBag.append(target.observe(\targetType.followAuthor, options: [.initial, .new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self?.authorHeaderView?.setAuthor(newValue?.name)
+                self?.authorHeaderView?.setAuthor(newValue.name)
                 if let normalSelf = self {
                     self?.photoGalleryPresenter?.dismissPhotoItemDetailScene(for: normalSelf)
                 }
                 
-                self?.tableView?.reloadData()
+                self?.photoGalleryPresenter?.queryPhotoItems(searchText: self?.searchBar?.text, asLazySearch: false)
             }
         })
     }
@@ -115,8 +115,7 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
         authorHeaderView = Bundle.main.loadNibNamed("AuthorHeaderView", owner: self, options: nil)?.first as? AuthorHeaderView
         authorHeaderView?.backgroundColor = UIColor.appRed
         authorHeaderView?.onClear = {
-            self.authorHeaderView?.setAuthor(nil)
-            self.tableView?.reloadData()
+            self.photoGalleryPresenter?.clearFollowedAuthor()
         }
     }
 }

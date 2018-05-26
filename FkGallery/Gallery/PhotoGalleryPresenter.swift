@@ -36,7 +36,13 @@ class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
             self.photoItemsQueried = PhotoItemsQueried(state: .querying, photoItems: existingItems, error: nil)
         }
         
-        photosService.queryPhotos(tag: searchText) {
+        let tags = searchText?.components(separatedBy: " ")
+        var authors: [String] = []
+        if let author = followAuthor.authorId {
+            authors.append(author)
+        }
+        
+        photosService.queryPhotos(tags: tags, authorIds: authors) {
             response in
             
             switch response {
@@ -88,5 +94,9 @@ extension PhotoGalleryPresenterImpl: PhotoGalleryPresenter {
                 self.queryPhotoItemsNow(searchText: searchText)
             }
         }
+    }
+    
+    func clearFollowedAuthor() {
+        followAuthor = FollowAuthor(authorId: nil, name: nil)
     }
 }

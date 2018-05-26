@@ -39,7 +39,7 @@ class PhotosServiceTests: XCTestCase {
         let expectLoaded = XCTestExpectation(description: "items loaded")
         
         let photosService = PhotosServiceImpl(restService: RestServiceImpl())
-        photosService.queryPhotos(tag: nil) {
+        photosService.queryPhotos(tags: nil, authorIds: nil) {
             response in
             
             switch response {
@@ -82,7 +82,7 @@ class PhotosServiceTests: XCTestCase {
         let expectLoaded = XCTestExpectation(description: "items loaded")
         
         let photosService = PhotosServiceImpl(restService: RestServiceImpl())
-        photosService.queryPhotos(tag: nil) {
+        photosService.queryPhotos(tags: nil, authorIds: nil) {
             response in
             
             switch response {

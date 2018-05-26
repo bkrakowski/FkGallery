@@ -15,7 +15,7 @@ enum PhotosResponse {
 }
 
 protocol PhotosServiceAPI {
-    func queryPhotos(tag: String?, closure: @escaping (PhotosResponse) -> Void)
+    func queryPhotos(tags: [String]?, authorIds: [String]?, closure: @escaping (PhotosResponse) -> Void)
 }
 
 
@@ -26,7 +26,7 @@ class PhotosServiceImpl: PhotosServiceAPI {
         self.restService = restService
     }
     
-    func queryPhotos(tag: String?, closure: @escaping (PhotosResponse) -> Void) {
+    func queryPhotos(tags: [String]?, authorIds: [String]?, closure: @escaping (PhotosResponse) -> Void) {
         var params: [String: Any] = [
             "format": "json",
             "nojsoncallback": 1
@@ -37,8 +37,12 @@ class PhotosServiceImpl: PhotosServiceAPI {
            params["lang"] = prefferedLang.lowercased()
         }
         
-        if let tag = tag {
-            params["tags"] = tag
+        if let tags = tags, tags.count > 0 {
+            params["tags"] = tags.joined(separator: ",")
+        }
+        
+        if let authorIds = authorIds, authorIds.count > 0 {
+            params["ids"] = authorIds.joined(separator: ",")
         }
         
         let endpoint: Endpoint = Endpoint(
