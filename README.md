@@ -8,7 +8,8 @@ This sample app uses Flickr public image feed API https://www.flickr.com/service
 1. Displays (in table view) image previews with selected image meta data.
 2. Provides image detail view with the ability to open the original image link in flickr safari page, and saves image to user's photo library.
 3. Searches images by image Tags.
-4. Refreshes feeds via the refresh control.
+4. Filter images by author.
+5. Refreshes feeds via the refresh control.
 
 ## Notes
 1. Implementation inspired by the VIPER pattern (View, Interactor as PhotosServiceAPI, Presenter, Entity, and Router as the Wire) with a twist: the presenter is not updating the views directly, but exposes the data source as KVO observable. 
