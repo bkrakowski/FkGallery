@@ -54,7 +54,7 @@ class PhotoGalleryPresenterTests: XCTestCase {
         
         disposeBag.append(presenter.photoItemsSource.observe(\targetType.photoItemsQueried, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.photoItemsQueried = newValue
+                self?.photoItemsQueried = newValue
                 if newValue.state == .ready {
                     expectLoaded.fulfill()
                 }
@@ -88,7 +88,7 @@ class PhotoGalleryPresenterTests: XCTestCase {
         
         disposeBag.append(presenter.photoItemsSource.observe(\targetType.photoItemsQueried, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.photoItemsQueried = newValue
+                self?.photoItemsQueried = newValue
                 if newValue.state == .ready {
                     expectLoaded.fulfill()
                 }
@@ -124,7 +124,7 @@ class PhotoGalleryPresenterTests: XCTestCase {
         
         disposeBag.append(presenter.photoItemsSource.observe(\targetType.photoItemsQueried, options: [.new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self.photoItemsQueried = newValue
+                self?.photoItemsQueried = newValue
                 if newValue.state == .ready {
                     expectLoaded.fulfill()
                 }

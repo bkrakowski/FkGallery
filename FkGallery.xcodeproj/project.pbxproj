@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		161F0920B90027E93BFE3F70 /* Pods_FkGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE405105DA785878192D9B7 /* Pods_FkGallery.framework */; };
+		431B56E720B8DCC200FFA81C /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 431B56E620B8DCC200FFA81C /* fastlane */; };
 		432C58B020B4E719002E1D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C58AF20B4E719002E1D89 /* AppDelegate.swift */; };
 		432C58B720B4E71A002E1D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B620B4E71A002E1D89 /* Assets.xcassets */; };
 		432C58BA20B4E71A002E1D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B820B4E71A002E1D89 /* LaunchScreen.storyboard */; };
@@ -102,6 +103,7 @@
 
 /* Begin PBXFileReference section */
 		18144E27A9A4A819310AE870 /* Pods-FkGalleryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FkGalleryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FkGalleryTests/Pods-FkGalleryTests.release.xcconfig"; sourceTree = "<group>"; };
+		431B56E620B8DCC200FFA81C /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = SOURCE_ROOT; };
 		432C58AC20B4E719002E1D89 /* FkGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FkGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		432C58AF20B4E719002E1D89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		432C58B420B4E719002E1D89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		432C58AE20B4E719002E1D89 /* FkGallery */ = {
 			isa = PBXGroup;
 			children = (
+				431B56E620B8DCC200FFA81C /* fastlane */,
 				432C591D20B4E8B9002E1D89 /* Services */,
 				432C591E20B4E8C1002E1D89 /* Model */,
 				432C591F20B4E8C9002E1D89 /* Gallery */,
@@ -469,6 +472,7 @@
 				43AA3BB820B706610021DAE5 /* MessageView.xib in Resources */,
 				43AA3BAC20B60E5B0021DAE5 /* Main.storyboard in Resources */,
 				432C58BA20B4E71A002E1D89 /* LaunchScreen.storyboard in Resources */,
+				431B56E720B8DCC200FFA81C /* fastlane in Resources */,
 				43AA3B8B20B5F1310021DAE5 /* Localizable.strings in Resources */,
 				432C58B720B4E71A002E1D89 /* Assets.xcassets in Resources */,
 				43AA3BA720B60BA60021DAE5 /* PhotoGalleryViewController.xib in Resources */,
@@ -874,7 +878,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LP225U9CB;
 				INFOPLIST_FILE = "FkGallery/Support Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bkrakowski.FkGallery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -891,7 +898,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LP225U9CB;
 				INFOPLIST_FILE = "FkGallery/Support Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bkrakowski.FkGallery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -908,7 +918,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LP225U9CB;
 				INFOPLIST_FILE = FkGalleryTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bkrakowski.FkGalleryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -926,7 +940,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LP225U9CB;
 				INFOPLIST_FILE = FkGalleryTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bkrakowski.FkGalleryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -943,7 +961,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LP225U9CB;
 				INFOPLIST_FILE = FkGalleryUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bkrakowski.FkGalleryUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -960,7 +982,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7LP225U9CB;
 				INFOPLIST_FILE = FkGalleryUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.bkrakowski.FkGalleryUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
