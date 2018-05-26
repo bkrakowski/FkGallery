@@ -42,6 +42,10 @@ $ pod install
 
 Then, reopen the FkGallery workspace file. 
 
+## Usage
+1. Open ./FkGallery.xcworkspace in xcode. Build and run on a device or simulator, and/or
+2. Visit ./fastlane/README.md to run all the tests via the command line
+
 ## License
 
 FkGallery is released under the MIT license.
