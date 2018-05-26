@@ -48,7 +48,7 @@ class FkGalleryUITests: XCTestCase {
         firstCell.tap()
         
         let buttons = app.buttons
-        XCTAssertEqual(buttons.count, 2, "found instead: \(buttons.debugDescription)")
+        XCTAssertEqual(buttons.count, 3, "found instead: \(buttons.debugDescription)")
         
         let images = app.images
         XCTAssertEqual(images.count, 1, "found instead: \(images.debugDescription)")
@@ -64,8 +64,21 @@ class FkGalleryUITests: XCTestCase {
         }
         
         let back = buttons.firstMatch
-        
         back.tap()
+    }
+    
+    func testFollowing() {
+        let cells = app.cells
+        let firstCell = cells.element.firstMatch
+        firstCell.tap()
+        
+        let buttons = app.buttons
+        let follow = buttons["Follow Author"]
+        
+        follow.tap()
+        
+        let clear = buttons["Clear Author"]
+        clear.tap()
     }
     
     func testOpenOriginal() {

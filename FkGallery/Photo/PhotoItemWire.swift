@@ -10,10 +10,10 @@ import Foundation
 
 class PhotoItemWireImpl: PhotoItemWire {
     
-    static func createPhotoItemScene(item: PhotoItem) -> PhotoItemView {
+    static func createPhotoItemScene(item: PhotoItem, followed: Bool) -> PhotoItemView {
         let photoItemViewController = PhotoItemViewController(nibName: "PhotoItemViewController", bundle: nil)
         let photoItemPresenter = PhotoItemPresenterImpl()
-        photoItemPresenter.setPhotoItemModel(item: item)
+        photoItemPresenter.setPhotoItem(item: item, followed: followed)
         photoItemPresenter.photoItemWire = PhotoItemWireImpl()
         photoItemViewController.photoItemPresenter = photoItemPresenter
         return photoItemViewController

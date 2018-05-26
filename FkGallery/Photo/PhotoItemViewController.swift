@@ -17,6 +17,7 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
     @IBOutlet weak var takenDateLabel: UILabel?
     @IBOutlet weak var publishedDateLabel: UILabel?
     @IBOutlet weak var tagsLabel: UILabel?
+    @IBOutlet weak var followAuthorButton: UIButton?
     @IBOutlet weak var openLinkButton: UIButton?
     
     var photoItemPresenter: PhotoItemPresenter?
@@ -81,6 +82,14 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
     private func configureView() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
+        followAuthorButton?.applyRoundedButtonStyle()
+        
+        if let followed = photoItemPresenter?.isAuthorFollowed(), followed {
+            followAuthorButton?.setTitle("Clear Author Filter", for: .normal)
+        } else {
+            followAuthorButton?.setTitle("Filter by Author", for: .normal)
+        }
+        
         openLinkButton?.applySimpleBorderStyle()
         openLinkButton?.isEnabled = photoItemPresenter?.canOpenLink() ?? false
         
@@ -95,6 +104,14 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
             self.imageView?.af_setImage(withURL: url, placeholderImage: placeholderImage)
         } else {
             self.imageView?.image = placeholderImage
+        }
+    }
+    
+    @IBAction func followAuthorPressed() {
+        if let followed = photoItemPresenter?.isAuthorFollowed(), followed {
+            photoItemPresenter?.clearFollowing()
+        } else {
+            photoItemPresenter?.followAuthor()
         }
     }
     

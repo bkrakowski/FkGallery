@@ -10,7 +10,7 @@ import Foundation
 
 // Wires photo item components together and acts as the Router for scenes.
 protocol PhotoItemWire: class {
-    static func createPhotoItemScene(item: PhotoItem) -> PhotoItemView
+    static func createPhotoItemScene(item: PhotoItem, followed: Bool) -> PhotoItemView
 }
 
 // Abstraction of the photo item view
@@ -20,6 +20,10 @@ protocol PhotoItemView: class {
 // Photo item Presenter
 protocol PhotoItemPresenter: class {
     var photoItemSource: PhotoItemSourceObservable? { get } // KVO this
+    
+    func isAuthorFollowed() -> Bool
+    func followAuthor()
+    func clearFollowing()
     
     func canOpenLink() -> Bool
     func openLink()

@@ -18,6 +18,13 @@ class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
     
     init(photosService: PhotosServiceAPI) {
         self.photosService = photosService
+        
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(onFollowAuthor(notification:)), name: .followAuthor, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func queryPhotoItemsNow(searchText: String?) {
@@ -29,7 +36,13 @@ class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
             self.photoItemsQueried = PhotoItemsQueried(state: .querying, photoItems: existingItems, error: nil)
         }
         
-        photosService.queryPhotos(tag: searchText) {
+        let tags = searchText?.components(separatedBy: " ")
+        var authors: [String] = []
+        if let author = followAuthor.authorId {
+            authors.append(author)
+        }
+        
+        photosService.queryPhotos(tags: tags, authorIds: authors) {
             response in
             
             switch response {
@@ -40,6 +53,14 @@ class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
             }
         }
     }
+    
+    @objc func onFollowAuthor(notification: NSNotification) {
+        if let follow = notification.userInfo?[Notification.UserInfoKey.authorTupple] as? (authorId: String, name: String) {
+            followAuthor = FollowAuthor(authorId: follow.authorId, name: follow.name)
+        } else {
+            followAuthor = FollowAuthor(authorId: nil, name: nil)
+        }
+    }
 }
 
 extension PhotoGalleryPresenterImpl: PhotoGalleryPresenter {
@@ -47,10 +68,16 @@ extension PhotoGalleryPresenterImpl: PhotoGalleryPresenter {
         return self
     }
     
-    func presentPhotoItemDetailScene(item: PhotoItem) {
+    func presentPhotoItemDetailScene(item: PhotoItem, followed: Bool) {
         guard let photoGalleryView = photoGalleryView else { return }
         
-        photoGalleryWire?.presentPhotoItemDetailScene(for: photoGalleryView, item: item)
+        photoGalleryWire?.presentPhotoItemDetailScene(for: photoGalleryView, item: item, followed: followed)
+    }
+    
+    func dismissPhotoItemDetailScene(for view: PhotoGalleryView) {
+        guard let photoGalleryView = photoGalleryView else { return }
+        
+        photoGalleryWire?.dismissPhotoItemDetailScene(for: photoGalleryView)
     }
     
     func queryPhotoItems(searchText: String?, asLazySearch: Bool?) {
@@ -69,5 +96,9 @@ extension PhotoGalleryPresenterImpl: PhotoGalleryPresenter {
                 self.queryPhotoItemsNow(searchText: searchText)
             }
         }
+    }
+    
+    func clearFollowedAuthor() {
+        followAuthor = FollowAuthor(authorId: nil, name: nil)
     }
 }

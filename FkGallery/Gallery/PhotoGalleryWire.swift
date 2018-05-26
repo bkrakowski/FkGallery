@@ -16,19 +16,30 @@ class PhotoGalleryWireImpl: PhotoGalleryWire {
         let photosService = PhotosServiceImpl(restService: RestServiceImpl())
         let photoGalleryPresenter = PhotoGalleryPresenterImpl(photosService: photosService)
         let photoGalleryWire = PhotoGalleryWireImpl()
+        let authorHeaderPresenter = AuthorHeaderPresenterImpl()
+        let authorHeaderView = Bundle.main.loadNibNamed("AuthorHeaderView", owner: authorHeaderPresenter, options: nil)?.first as? AuthorHeaderView
         
         photoGalleryPresenter.photoGalleryWire = photoGalleryWire
         photoGalleryPresenter.photoGalleryView = photoGalleryViewController
         photoGalleryViewController.photoGalleryPresenter = photoGalleryPresenter
         photoGalleryViewController.photoCellPresenter = PhotoCellPresenterImpl()
+        photoGalleryViewController.authorHeaderPresenter = authorHeaderPresenter
+        authorHeaderView?.authorHeaderPresenter = authorHeaderPresenter
+        authorHeaderPresenter.authorHeaderView = authorHeaderView
         return photoGalleryViewController
     }
     
-    func presentPhotoItemDetailScene(for view: PhotoGalleryView, item: PhotoItem) {
+    func presentPhotoItemDetailScene(for view: PhotoGalleryView, item: PhotoItem, followed: Bool) {
         if let view = view as? PhotoGalleryViewController {
-            if let itemView = PhotoItemWireImpl.createPhotoItemScene(item: item) as? UIViewController {
+            if let itemView = PhotoItemWireImpl.createPhotoItemScene(item: item, followed: followed) as? UIViewController {
                 view.navigationController?.pushViewController(itemView, animated: true)
             }
+        }
+    }
+    
+    func dismissPhotoItemDetailScene(for view: PhotoGalleryView) {
+        if let view = view as? PhotoGalleryViewController {
+            view.navigationController?.popToRootViewController(animated: true)
         }
     }
 }

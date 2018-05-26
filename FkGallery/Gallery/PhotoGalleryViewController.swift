@@ -16,6 +16,7 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
     
     var photoGalleryPresenter: PhotoGalleryPresenter?
     var photoCellPresenter: PhotoCellPresenter?
+    var authorHeaderPresenter: AuthorHeaderPresenter?
     
     private var disposeBag: [NSKeyValueObservation] = []
     private let refreshControl = UIRefreshControl()
@@ -46,6 +47,17 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
                 self?.updateView(photoItemsQueried: newValue)
             }
         })
+        
+        disposeBag.append(target.observe(\targetType.followAuthor, options: [.initial, .new]) { [weak self] (target, change) in
+            if let newValue = change.newValue {
+                self?.authorHeaderPresenter?.setAuthor(newValue.name)
+                if let normalSelf = self {
+                    self?.photoGalleryPresenter?.dismissPhotoItemDetailScene(for: normalSelf)
+                }
+                
+                self?.photoGalleryPresenter?.queryPhotoItems(searchText: self?.searchBar?.text, asLazySearch: false)
+            }
+        })
     }
     
     private func configureView() {
@@ -65,6 +77,8 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
         let tapHideKeyboard = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapHideKeyboard.cancelsTouchesInView = false
         view?.addGestureRecognizer(tapHideKeyboard)
+        
+        configureAuthorHeader()
     }
     
     @objc func hideKeyboard() {
@@ -96,6 +110,12 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
             }
         }
     }
+    
+    func configureAuthorHeader() {
+        authorHeaderPresenter?.onClearFollowing = {
+            self.photoGalleryPresenter?.clearFollowedAuthor()
+        }
+    }
 }
 
 // TODO: consider using RxSwift and RxCocoa for the reactive table handling
@@ -124,10 +144,26 @@ extension PhotoGalleryViewController: UITableViewDataSource {
 extension PhotoGalleryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let photoItems = photoGalleryPresenter?.photoItemsSource.photoItemsQueried.photoItems {
-            photoGalleryPresenter?.presentPhotoItemDetailScene(item: photoItems[indexPath.row])
+            photoGalleryPresenter?.presentPhotoItemDetailScene(item: photoItems[indexPath.row], followed: authorHeaderPresenter?.isFollowing ?? false)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if let following = authorHeaderPresenter?.isFollowing, following {
+            return 30
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let following = authorHeaderPresenter?.isFollowing, following {
+            return authorHeaderPresenter?.getAuthorHeaderView() as? UIView
+        } else {
+            return nil
+        }
     }
 }
 

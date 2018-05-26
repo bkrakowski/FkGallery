@@ -127,7 +127,7 @@ class PhotoItemPresenterTests: XCTestCase {
         
         let expects = observePresenter()
         
-        photoItemPresenter?.setPhotoItemModel(item: item)
+        photoItemPresenter?.setPhotoItem(item: item, followed: false)
 
         wait(for: expects, timeout: 3.0)
         

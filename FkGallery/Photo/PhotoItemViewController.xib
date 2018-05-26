@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoItemViewController" customModule="FkGallery" customModuleProvider="target">
             <connections>
                 <outlet property="authorLabel" destination="Sac-vV-XDj" id="ZQY-CF-2hd"/>
+                <outlet property="followAuthorButton" destination="glz-Fh-40k" id="8jS-qg-ogf"/>
                 <outlet property="imageView" destination="fcJ-O3-4fm" id="V3e-kL-Anq"/>
                 <outlet property="openLinkButton" destination="e1v-tn-mQg" id="mKn-Xa-Xmg"/>
                 <outlet property="publishedDateLabel" destination="0xr-g5-kHl" id="3dC-sD-hi6"/>
@@ -31,7 +32,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzn-nS-CU7" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="566.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="630.5"/>
                             <subviews>
                                 <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fcJ-O3-4fm">
                                     <rect key="frame" x="16" y="8" width="343" height="280"/>
@@ -83,8 +84,22 @@
                                         </label>
                                     </subviews>
                                 </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glz-Fh-40k">
+                                    <rect key="frame" x="67" y="490" width="240" height="44"/>
+                                    <accessibility key="accessibilityConfiguration" hint="Follow Author" identifier="Follow Author" label="Follow Author">
+                                        <bool key="isElement" value="YES"/>
+                                    </accessibility>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="2sS-nV-MCT"/>
+                                        <constraint firstAttribute="width" constant="240" id="spD-vT-e3l"/>
+                                    </constraints>
+                                    <state key="normal" title="Follow Author"/>
+                                    <connections>
+                                        <action selector="followAuthorPressed" destination="-1" eventType="touchUpInside" id="NNU-oC-kYm"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1v-tn-mQg">
-                                    <rect key="frame" x="67" y="498.5" width="240" height="44"/>
+                                    <rect key="frame" x="67" y="550.5" width="240" height="44"/>
                                     <accessibility key="accessibilityConfiguration" hint="Open Original" identifier="Open Original" label="Open Original">
                                         <bool key="isElement" value="YES"/>
                                     </accessibility>
@@ -103,16 +118,24 @@
                                 <bool key="isElement" value="NO"/>
                             </accessibility>
                             <constraints>
+                                <constraint firstItem="e1v-tn-mQg" firstAttribute="top" secondItem="glz-Fh-40k" secondAttribute="bottom" constant="16" id="AvB-rK-jlq"/>
                                 <constraint firstItem="dTO-KS-QNV" firstAttribute="leading" secondItem="Fzn-nS-CU7" secondAttribute="leading" constant="32" id="BTb-H3-YFL"/>
                                 <constraint firstItem="fcJ-O3-4fm" firstAttribute="top" secondItem="Fzn-nS-CU7" secondAttribute="top" constant="8" id="BmU-er-nAv"/>
                                 <constraint firstItem="fcJ-O3-4fm" firstAttribute="leading" secondItem="Fzn-nS-CU7" secondAttribute="leading" constant="16" id="DS9-vF-Iqo"/>
                                 <constraint firstItem="e1v-tn-mQg" firstAttribute="centerX" secondItem="Fzn-nS-CU7" secondAttribute="centerX" id="EVM-Jh-f5x"/>
-                                <constraint firstAttribute="bottom" secondItem="e1v-tn-mQg" secondAttribute="bottom" constant="24" id="WFM-Ze-piI"/>
-                                <constraint firstItem="e1v-tn-mQg" firstAttribute="top" secondItem="dTO-KS-QNV" secondAttribute="bottom" constant="44" id="ccc-gW-LcF"/>
+                                <constraint firstAttribute="height" constant="600" id="Gx3-TD-9gF"/>
+                                <constraint firstAttribute="bottom" secondItem="e1v-tn-mQg" secondAttribute="bottom" constant="36" id="WFM-Ze-piI"/>
                                 <constraint firstItem="dTO-KS-QNV" firstAttribute="top" secondItem="fcJ-O3-4fm" secondAttribute="bottom" constant="16" id="dfj-5C-lUP"/>
+                                <constraint firstItem="glz-Fh-40k" firstAttribute="top" secondItem="dTO-KS-QNV" secondAttribute="bottom" constant="36" id="lPC-1m-FwH"/>
                                 <constraint firstAttribute="trailing" secondItem="dTO-KS-QNV" secondAttribute="trailing" constant="32" id="qgS-BE-nfT"/>
+                                <constraint firstItem="glz-Fh-40k" firstAttribute="centerX" secondItem="Fzn-nS-CU7" secondAttribute="centerX" id="rzv-bS-H1M"/>
                                 <constraint firstAttribute="trailing" secondItem="fcJ-O3-4fm" secondAttribute="trailing" constant="16" id="z6b-BJ-wil"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Gx3-TD-9gF"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
                     <constraints>
