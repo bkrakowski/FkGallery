@@ -8,33 +8,34 @@
 
 import UIKit
 
-protocol AuthorHeader {
-    func setAuthor(_ author: String?)
-    var following: Bool { get }
-    var onClear: (() -> ())? { get set }
-}
-
-
 class AuthorHeaderView: UIView {
+    @IBOutlet weak var folowingLabel: UILabel?
     @IBOutlet weak var authorLabel: UILabel?
     @IBOutlet weak var clearButton: UIButton?
     
-    var onClear: (() -> ())?
-    
-    @IBAction func clearButtonPressed() {
-        onClear?()
-    }
-    
+    weak var authorHeaderPresenter: AuthorHeaderPresenter?
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        backgroundColor = UIColor.appRed
         authorLabel?.text = nil
+    }
+    
+    @IBAction func clearButtonPressed() {
+        authorHeaderPresenter?.clearFollowing()
     }
 }
 
-extension AuthorHeaderView: AuthorHeader {
-    var following: Bool { return authorLabel?.text != nil }
+extension AuthorHeaderView: FollowingAuthorHeaderView {
+    func updateFollowingLabel(text: String?) {
+        folowingLabel?.text = text
+    }
     
-    func setAuthor(_ author: String?) {
-        authorLabel?.text = author
+    func updateAuthorLabel(text: String?) {
+        authorLabel?.text = text
+    }
+    func enableClearButton(enable: Bool) {
+        clearButton?.isEnabled = enable
     }
 }

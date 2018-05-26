@@ -16,11 +16,16 @@ class PhotoGalleryWireImpl: PhotoGalleryWire {
         let photosService = PhotosServiceImpl(restService: RestServiceImpl())
         let photoGalleryPresenter = PhotoGalleryPresenterImpl(photosService: photosService)
         let photoGalleryWire = PhotoGalleryWireImpl()
+        let authorHeaderPresenter = AuthorHeaderPresenterImpl()
+        let authorHeaderView = Bundle.main.loadNibNamed("AuthorHeaderView", owner: authorHeaderPresenter, options: nil)?.first as? AuthorHeaderView
         
         photoGalleryPresenter.photoGalleryWire = photoGalleryWire
         photoGalleryPresenter.photoGalleryView = photoGalleryViewController
         photoGalleryViewController.photoGalleryPresenter = photoGalleryPresenter
         photoGalleryViewController.photoCellPresenter = PhotoCellPresenterImpl()
+        photoGalleryViewController.authorHeaderPresenter = authorHeaderPresenter
+        authorHeaderView?.authorHeaderPresenter = authorHeaderPresenter
+        authorHeaderPresenter.authorHeaderView = authorHeaderView
         return photoGalleryViewController
     }
     

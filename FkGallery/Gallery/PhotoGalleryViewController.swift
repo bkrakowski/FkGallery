@@ -13,10 +13,10 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
     @IBOutlet weak var searchBar: UISearchBar?
     @IBOutlet weak var tableView: UITableView?
     private var textMessageOverlay: TextMessageOverlay?
-    private var authorHeaderView: AuthorHeaderView?
     
     var photoGalleryPresenter: PhotoGalleryPresenter?
     var photoCellPresenter: PhotoCellPresenter?
+    var authorHeaderPresenter: AuthorHeaderPresenter?
     
     private var disposeBag: [NSKeyValueObservation] = []
     private let refreshControl = UIRefreshControl()
@@ -50,7 +50,7 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
         
         disposeBag.append(target.observe(\targetType.followAuthor, options: [.initial, .new]) { [weak self] (target, change) in
             if let newValue = change.newValue {
-                self?.authorHeaderView?.setAuthor(newValue.name)
+                self?.authorHeaderPresenter?.setAuthor(newValue.name)
                 if let normalSelf = self {
                     self?.photoGalleryPresenter?.dismissPhotoItemDetailScene(for: normalSelf)
                 }
@@ -112,9 +112,7 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
     }
     
     func configureAuthorHeader() {
-        authorHeaderView = Bundle.main.loadNibNamed("AuthorHeaderView", owner: self, options: nil)?.first as? AuthorHeaderView
-        authorHeaderView?.backgroundColor = UIColor.appRed
-        authorHeaderView?.onClear = {
+        authorHeaderPresenter?.onClearFollowing = {
             self.photoGalleryPresenter?.clearFollowedAuthor()
         }
     }
@@ -153,7 +151,7 @@ extension PhotoGalleryViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if let following = authorHeaderView?.following, following {
+        if let following = authorHeaderPresenter?.isFollowing, following {
             return 30
         } else {
             return 0
@@ -161,8 +159,8 @@ extension PhotoGalleryViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let following = authorHeaderView?.following, following {
-            return authorHeaderView
+        if let following = authorHeaderPresenter?.isFollowing, following {
+            return authorHeaderPresenter?.getAuthorHeaderView() as? UIView
         } else {
             return nil
         }

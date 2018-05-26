@@ -11,6 +11,9 @@
 		431B56E720B8DCC200FFA81C /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 431B56E620B8DCC200FFA81C /* fastlane */; };
 		431C62FD20B9E4FA00C17FF7 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A186420B9D33F002AA57D /* Notification.swift */; };
 		431C62FE20B9E4FB00C17FF7 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A186420B9D33F002AA57D /* Notification.swift */; };
+		431C630020B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */; };
+		431C630120B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */; };
+		431C630220B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */; };
 		432C58B020B4E719002E1D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C58AF20B4E719002E1D89 /* AppDelegate.swift */; };
 		432C58B720B4E71A002E1D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B620B4E71A002E1D89 /* Assets.xcassets */; };
 		432C58BA20B4E71A002E1D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B820B4E71A002E1D89 /* LaunchScreen.storyboard */; };
@@ -108,6 +111,7 @@
 /* Begin PBXFileReference section */
 		18144E27A9A4A819310AE870 /* Pods-FkGalleryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FkGalleryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FkGalleryTests/Pods-FkGalleryTests.release.xcconfig"; sourceTree = "<group>"; };
 		431B56E620B8DCC200FFA81C /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = SOURCE_ROOT; };
+		431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorHeaderPresenter.swift; sourceTree = "<group>"; };
 		432C58AC20B4E719002E1D89 /* FkGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FkGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		432C58AF20B4E719002E1D89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		432C58B420B4E719002E1D89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -292,6 +296,7 @@
 				432C58E920B4E89B002E1D89 /* PhotoCellPresenter.swift */,
 				432C58E720B4E89B002E1D89 /* PhotoViewCell.swift */,
 				432C58EB20B4E89B002E1D89 /* PhotoViewCell.xib */,
+				431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */,
 				438A186120B9C4FC002AA57D /* AuthorHeaderView.swift */,
 				438A185E20B9C4BD002AA57D /* AuthorHeaderView.xib */,
 				43AA3BB520B7062E0021DAE5 /* MessageView.swift */,
@@ -643,6 +648,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				431C630020B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */,
 				43AA3B7020B52BA40021DAE5 /* UIApplication.swift in Sources */,
 				436DB3A320B8818200EEE1DB /* PhotoItemProtocols.swift in Sources */,
 				43AA3B7E20B5416A0021DAE5 /* JSON.swift in Sources */,
@@ -676,6 +682,7 @@
 			files = (
 				43AA3B7F20B5416A0021DAE5 /* JSON.swift in Sources */,
 				432C590F20B4E89B002E1D89 /* PhotoItem.swift in Sources */,
+				431C630120B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */,
 				43C775F420B7484100AC8063 /* PhotoGalleryPresenterTests.swift in Sources */,
 				43AA3B7720B52BA40021DAE5 /* UIButton.swift in Sources */,
 				43C775FE20B755F700AC8063 /* PhotoItemPresenterTests.swift in Sources */,
@@ -711,6 +718,7 @@
 				43AA3B9F20B60A520021DAE5 /* String.swift in Sources */,
 				432C591620B4E89B002E1D89 /* RestServiceAPI.swift in Sources */,
 				432C58FE20B4E89B002E1D89 /* PhotosServiceAPI.swift in Sources */,
+				431C630220B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */,
 				436DB3A120B87EB200EEE1DB /* PhotoGalleryProtocols.swift in Sources */,
 				432C58D020B4E71A002E1D89 /* FkGalleryUITests.swift in Sources */,
 				431C62FE20B9E4FB00C17FF7 /* Notification.swift in Sources */,
