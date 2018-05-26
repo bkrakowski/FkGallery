@@ -45,10 +45,10 @@ extension AuthorHeaderPresenterImpl: AuthorHeaderPresenter {
         authorHeaderView?.updateAuthorLabel(text: author)
         
         if isFollowing {
-            authorHeaderView?.updateFollowingLabel(text: NSLocalizedString("Following", comment: ""))
+            authorHeaderView?.updateFollowingLabel(text: NSLocalizedString("Filtered by", comment: ""))
             authorHeaderView?.enableClearButton(enable: true)
         } else {
-            authorHeaderView?.updateFollowingLabel(text: NSLocalizedString("Following all public photos", comment: ""))
+            authorHeaderView?.updateFollowingLabel(text: NSLocalizedString("Removing filter...", comment: ""))
             authorHeaderView?.enableClearButton(enable: false)
         }
     }

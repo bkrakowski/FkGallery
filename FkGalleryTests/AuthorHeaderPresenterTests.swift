@@ -34,14 +34,14 @@ class AuthorHeaderPresenterTests: XCTestCase {
         
         authorHeaderPresenter.setAuthor("test")
         XCTAssert(authorHeaderPresenter.isFollowing)
-        XCTAssert(followingTest == "Following")
+        XCTAssert(followingTest == "Filtered by")
         XCTAssert(authorTest == "test")
         XCTAssert(clearEnabled == true)
         XCTAssert(onClearFollowingCalled == nil)
 
         authorHeaderPresenter.clearFollowing()
         XCTAssert(authorHeaderPresenter.isFollowing == false)
-        XCTAssert(followingTest == "Following all public photos")
+        XCTAssert(followingTest == "Removing filter...")
         XCTAssert(authorTest == nil)
         XCTAssert(clearEnabled == false)
         XCTAssert(onClearFollowingCalled == true)
