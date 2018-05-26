@@ -24,7 +24,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIq-V4-JF3">
                     <rect key="frame" x="364" y="4.5" width="60" height="44"/>
-                    <accessibility key="accessibilityConfiguration" hint="Clear by Author" label="Clear by Author"/>
+                    <accessibility key="accessibilityConfiguration" hint="Clear by Author" identifier="Clear Author" label="Clear by Author"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="2XF-pQ-KBN"/>
                         <constraint firstAttribute="height" constant="44" id="qBD-UD-qgU"/>

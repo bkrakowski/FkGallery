@@ -64,8 +64,21 @@ class FkGalleryUITests: XCTestCase {
         }
         
         let back = buttons.firstMatch
-        
         back.tap()
+    }
+    
+    func testFollowing() {
+        let cells = app.cells
+        let firstCell = cells.element.firstMatch
+        firstCell.tap()
+        
+        let buttons = app.buttons
+        let follow = buttons["Follow Author"]
+        
+        follow.tap()
+        
+        let clear = buttons["Clear Author"]
+        clear.tap()
     }
     
     func testOpenOriginal() {

@@ -14,6 +14,7 @@
 		431C630020B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */; };
 		431C630120B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */; };
 		431C630220B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */; };
+		431C630520BA06FB00C17FF7 /* AuthorHeaderPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C630320BA06FA00C17FF7 /* AuthorHeaderPresenterTests.swift */; };
 		432C58B020B4E719002E1D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C58AF20B4E719002E1D89 /* AppDelegate.swift */; };
 		432C58B720B4E71A002E1D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B620B4E71A002E1D89 /* Assets.xcassets */; };
 		432C58BA20B4E71A002E1D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B820B4E71A002E1D89 /* LaunchScreen.storyboard */; };
@@ -112,6 +113,7 @@
 		18144E27A9A4A819310AE870 /* Pods-FkGalleryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FkGalleryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FkGalleryTests/Pods-FkGalleryTests.release.xcconfig"; sourceTree = "<group>"; };
 		431B56E620B8DCC200FFA81C /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = SOURCE_ROOT; };
 		431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorHeaderPresenter.swift; sourceTree = "<group>"; };
+		431C630320BA06FA00C17FF7 /* AuthorHeaderPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorHeaderPresenterTests.swift; sourceTree = "<group>"; };
 		432C58AC20B4E719002E1D89 /* FkGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FkGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		432C58AF20B4E719002E1D89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		432C58B420B4E719002E1D89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				43C775F120B743B200AC8063 /* PhotosServiceTests.swift */,
 				43C775F320B7484100AC8063 /* PhotoGalleryPresenterTests.swift */,
 				43C775FD20B755F700AC8063 /* PhotoItemPresenterTests.swift */,
+				431C630320BA06FA00C17FF7 /* AuthorHeaderPresenterTests.swift */,
 				43C775FF20B7677900AC8063 /* PhotoCellPresenterTests.swift */,
 				432C58C620B4E71A002E1D89 /* Info.plist */,
 				43AA3B9120B5F9C30021DAE5 /* TestMocks */,
@@ -694,6 +697,7 @@
 				436DB3A420B8818200EEE1DB /* PhotoItemProtocols.swift in Sources */,
 				432C58FD20B4E89B002E1D89 /* PhotosServiceAPI.swift in Sources */,
 				43AA3B9920B5FB590021DAE5 /* MockRestData.swift in Sources */,
+				431C630520BA06FB00C17FF7 /* AuthorHeaderPresenterTests.swift in Sources */,
 				43AA3B7520B52BA40021DAE5 /* String.swift in Sources */,
 				43C7760020B7677900AC8063 /* PhotoCellPresenterTests.swift in Sources */,
 				43AA3B7B20B52BA40021DAE5 /* UIFont.swift in Sources */,
