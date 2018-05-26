@@ -79,6 +79,11 @@ extension PhotoItemPresenterImpl: PhotoItemPresenter {
         return self
     }
     
+    func followAuthor() {
+        let userInfo = [Notification.UserInfoKey.authorTupple: (authorId: item?.authorId, name: item?.author)]
+        NotificationCenter.default.post(name: .followAuthor, object: self, userInfo: userInfo)
+    }
+    
     func canOpenLink() -> Bool {
         guard let item = item else { return false }
         

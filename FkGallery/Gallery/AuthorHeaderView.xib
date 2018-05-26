@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AuthorHeaderView" customModule="FkGallery" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="424" height="53"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szv-Cy-uCS">
+                    <rect key="frame" x="12" y="18.5" width="57.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIq-V4-JF3">
+                    <rect key="frame" x="364" y="4.5" width="60" height="44"/>
+                    <accessibility key="accessibilityConfiguration" hint="Clear by Author" label="Clear by Author"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="2XF-pQ-KBN"/>
+                        <constraint firstAttribute="height" constant="44" id="qBD-UD-qgU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <state key="normal" title="Clear">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="clearButtonPressed" destination="iN0-l3-epB" eventType="touchUpInside" id="EmP-4z-v1Q"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2n-DZ-jeV">
+                    <rect key="frame" x="77.5" y="17.5" width="49" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.87058823529999996" green="0.1019607843" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Q2n-DZ-jeV" firstAttribute="leading" secondItem="szv-Cy-uCS" secondAttribute="trailing" constant="8" id="J1a-gx-44L"/>
+                <constraint firstItem="szv-Cy-uCS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="gFv-kJ-oVr"/>
+                <constraint firstItem="qIq-V4-JF3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hgr-Tb-Pa6"/>
+                <constraint firstItem="szv-Cy-uCS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jZ4-1w-ygC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qIq-V4-JF3" secondAttribute="trailing" id="vVs-rX-1iQ"/>
+                <constraint firstItem="Q2n-DZ-jeV" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="wIi-b5-Vyn"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="authorLabel" destination="Q2n-DZ-jeV" id="deY-2R-r2L"/>
+                <outlet property="clearButton" destination="qIq-V4-JF3" id="koY-9i-Uv0"/>
+            </connections>
+            <point key="canvasLocation" x="-107" y="-296"/>
+        </view>
+    </objects>
+</document>

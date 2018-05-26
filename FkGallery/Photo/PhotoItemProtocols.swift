@@ -21,6 +21,7 @@ protocol PhotoItemView: class {
 protocol PhotoItemPresenter: class {
     var photoItemSource: PhotoItemSourceObservable? { get } // KVO this
     
+    func followAuthor()
     func canOpenLink() -> Bool
     func openLink()
 }

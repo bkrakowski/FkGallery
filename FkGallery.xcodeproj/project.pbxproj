@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		161F0920B90027E93BFE3F70 /* Pods_FkGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE405105DA785878192D9B7 /* Pods_FkGallery.framework */; };
 		431B56E720B8DCC200FFA81C /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 431B56E620B8DCC200FFA81C /* fastlane */; };
+		431C62FD20B9E4FA00C17FF7 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A186420B9D33F002AA57D /* Notification.swift */; };
+		431C62FE20B9E4FB00C17FF7 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A186420B9D33F002AA57D /* Notification.swift */; };
 		432C58B020B4E719002E1D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C58AF20B4E719002E1D89 /* AppDelegate.swift */; };
 		432C58B720B4E71A002E1D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B620B4E71A002E1D89 /* Assets.xcassets */; };
 		432C58BA20B4E71A002E1D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B820B4E71A002E1D89 /* LaunchScreen.storyboard */; };
@@ -47,9 +49,12 @@
 		436DB3A320B8818200EEE1DB /* PhotoItemProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436DB3A220B8818200EEE1DB /* PhotoItemProtocols.swift */; };
 		436DB3A420B8818200EEE1DB /* PhotoItemProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436DB3A220B8818200EEE1DB /* PhotoItemProtocols.swift */; };
 		436DB3A520B8818200EEE1DB /* PhotoItemProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436DB3A220B8818200EEE1DB /* PhotoItemProtocols.swift */; };
+		438A185F20B9C4BD002AA57D /* AuthorHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 438A185E20B9C4BD002AA57D /* AuthorHeaderView.xib */; };
+		438A186020B9C4BD002AA57D /* AuthorHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 438A185E20B9C4BD002AA57D /* AuthorHeaderView.xib */; };
+		438A186220B9C4FC002AA57D /* AuthorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A186120B9C4FC002AA57D /* AuthorHeaderView.swift */; };
+		438A186320B9C4FC002AA57D /* AuthorHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A186120B9C4FC002AA57D /* AuthorHeaderView.swift */; };
+		438A186520B9D33F002AA57D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438A186420B9D33F002AA57D /* Notification.swift */; };
 		43AA3B7020B52BA40021DAE5 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B6A20B52BA30021DAE5 /* UIApplication.swift */; };
-		43AA3B7220B52BA40021DAE5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B6B20B52BA30021DAE5 /* UIImage.swift */; };
-		43AA3B7320B52BA40021DAE5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B6B20B52BA30021DAE5 /* UIImage.swift */; };
 		43AA3B7420B52BA40021DAE5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B6C20B52BA30021DAE5 /* String.swift */; };
 		43AA3B7520B52BA40021DAE5 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B6C20B52BA30021DAE5 /* String.swift */; };
 		43AA3B7620B52BA40021DAE5 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B6D20B52BA30021DAE5 /* UIButton.swift */; };
@@ -68,7 +73,6 @@
 		43AA3BA120B60A520021DAE5 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B6D20B52BA30021DAE5 /* UIButton.swift */; };
 		43AA3BA220B60A520021DAE5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B6E20B52BA30021DAE5 /* UIColor.swift */; };
 		43AA3BA320B60A520021DAE5 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B6F20B52BA40021DAE5 /* UIFont.swift */; };
-		43AA3BA420B60A520021DAE5 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B6B20B52BA30021DAE5 /* UIImage.swift */; };
 		43AA3BA520B60A520021DAE5 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43AA3B7D20B5416A0021DAE5 /* JSON.swift */; };
 		43AA3BA720B60BA60021DAE5 /* PhotoGalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43AA3BA620B60BA50021DAE5 /* PhotoGalleryViewController.xib */; };
 		43AA3BAC20B60E5B0021DAE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B320B4E719002E1D89 /* Main.storyboard */; };
@@ -131,8 +135,10 @@
 		432C58EC20B4E89B002E1D89 /* PhotoItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoItemViewController.xib; sourceTree = "<group>"; };
 		436DB39E20B87EB100EEE1DB /* PhotoGalleryProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGalleryProtocols.swift; sourceTree = "<group>"; };
 		436DB3A220B8818200EEE1DB /* PhotoItemProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoItemProtocols.swift; sourceTree = "<group>"; };
+		438A185E20B9C4BD002AA57D /* AuthorHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthorHeaderView.xib; sourceTree = "<group>"; };
+		438A186120B9C4FC002AA57D /* AuthorHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorHeaderView.swift; sourceTree = "<group>"; };
+		438A186420B9D33F002AA57D /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		43AA3B6A20B52BA30021DAE5 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
-		43AA3B6B20B52BA30021DAE5 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		43AA3B6C20B52BA30021DAE5 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		43AA3B6D20B52BA30021DAE5 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		43AA3B6E20B52BA30021DAE5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -286,6 +292,8 @@
 				432C58E920B4E89B002E1D89 /* PhotoCellPresenter.swift */,
 				432C58E720B4E89B002E1D89 /* PhotoViewCell.swift */,
 				432C58EB20B4E89B002E1D89 /* PhotoViewCell.xib */,
+				438A186120B9C4FC002AA57D /* AuthorHeaderView.swift */,
+				438A185E20B9C4BD002AA57D /* AuthorHeaderView.xib */,
 				43AA3BB520B7062E0021DAE5 /* MessageView.swift */,
 				43AA3BB720B706610021DAE5 /* MessageView.xib */,
 			);
@@ -321,7 +329,7 @@
 				43AA3B6D20B52BA30021DAE5 /* UIButton.swift */,
 				43AA3B6E20B52BA30021DAE5 /* UIColor.swift */,
 				43AA3B6F20B52BA40021DAE5 /* UIFont.swift */,
-				43AA3B6B20B52BA30021DAE5 /* UIImage.swift */,
+				438A186420B9D33F002AA57D /* Notification.swift */,
 				43AA3B7D20B5416A0021DAE5 /* JSON.swift */,
 			);
 			path = Extensions;
@@ -475,6 +483,7 @@
 				431B56E720B8DCC200FFA81C /* fastlane in Resources */,
 				43AA3B8B20B5F1310021DAE5 /* Localizable.strings in Resources */,
 				432C58B720B4E71A002E1D89 /* Assets.xcassets in Resources */,
+				438A185F20B9C4BD002AA57D /* AuthorHeaderView.xib in Resources */,
 				43AA3BA720B60BA60021DAE5 /* PhotoGalleryViewController.xib in Resources */,
 				432C591720B4E89B002E1D89 /* PhotoViewCell.xib in Resources */,
 				432C591A20B4E89B002E1D89 /* PhotoItemViewController.xib in Resources */,
@@ -493,6 +502,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				438A186020B9C4BD002AA57D /* AuthorHeaderView.xib in Resources */,
 				43C7760220B76D5300AC8063 /* MockResponseData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,7 +650,7 @@
 				432C591120B4E89B002E1D89 /* PhotoCellPresenter.swift in Sources */,
 				432C58FC20B4E89B002E1D89 /* PhotosServiceAPI.swift in Sources */,
 				43AA3B7620B52BA40021DAE5 /* UIButton.swift in Sources */,
-				43AA3B7220B52BA40021DAE5 /* UIImage.swift in Sources */,
+				438A186220B9C4FC002AA57D /* AuthorHeaderView.swift in Sources */,
 				432C58F020B4E89B002E1D89 /* PhotoGalleryPresenter.swift in Sources */,
 				43AA3B7820B52BA40021DAE5 /* UIColor.swift in Sources */,
 				432C590B20B4E89B002E1D89 /* PhotoViewCell.swift in Sources */,
@@ -648,6 +658,7 @@
 				432C591420B4E89B002E1D89 /* RestServiceAPI.swift in Sources */,
 				43AA3BB620B7062E0021DAE5 /* MessageView.swift in Sources */,
 				436DB39F20B87EB200EEE1DB /* PhotoGalleryProtocols.swift in Sources */,
+				438A186520B9D33F002AA57D /* Notification.swift in Sources */,
 				432C590E20B4E89B002E1D89 /* PhotoItem.swift in Sources */,
 				43AA3B7420B52BA40021DAE5 /* String.swift in Sources */,
 				432C58B020B4E719002E1D89 /* AppDelegate.swift in Sources */,
@@ -667,7 +678,6 @@
 				432C590F20B4E89B002E1D89 /* PhotoItem.swift in Sources */,
 				43C775F420B7484100AC8063 /* PhotoGalleryPresenterTests.swift in Sources */,
 				43AA3B7720B52BA40021DAE5 /* UIButton.swift in Sources */,
-				43AA3B7320B52BA40021DAE5 /* UIImage.swift in Sources */,
 				43C775FE20B755F700AC8063 /* PhotoItemPresenterTests.swift in Sources */,
 				436DB3A020B87EB200EEE1DB /* PhotoGalleryProtocols.swift in Sources */,
 				432C58EE20B4E89B002E1D89 /* PhotoItemFactory.swift in Sources */,
@@ -680,6 +690,7 @@
 				43AA3B7520B52BA40021DAE5 /* String.swift in Sources */,
 				43C7760020B7677900AC8063 /* PhotoCellPresenterTests.swift in Sources */,
 				43AA3B7B20B52BA40021DAE5 /* UIFont.swift in Sources */,
+				431C62FD20B9E4FA00C17FF7 /* Notification.swift in Sources */,
 				432C58F120B4E89B002E1D89 /* PhotoGalleryPresenter.swift in Sources */,
 				432C591220B4E89B002E1D89 /* PhotoCellPresenter.swift in Sources */,
 				43C775F220B743B200AC8063 /* PhotosServiceTests.swift in Sources */,
@@ -694,14 +705,15 @@
 				43AA3BA520B60A520021DAE5 /* JSON.swift in Sources */,
 				43AA3BA220B60A520021DAE5 /* UIColor.swift in Sources */,
 				432C591020B4E89B002E1D89 /* PhotoItem.swift in Sources */,
-				43AA3BA420B60A520021DAE5 /* UIImage.swift in Sources */,
 				432C58EF20B4E89B002E1D89 /* PhotoItemFactory.swift in Sources */,
 				432C58F820B4E89B002E1D89 /* PhotoItemPresenter.swift in Sources */,
+				438A186320B9C4FC002AA57D /* AuthorHeaderView.swift in Sources */,
 				43AA3B9F20B60A520021DAE5 /* String.swift in Sources */,
 				432C591620B4E89B002E1D89 /* RestServiceAPI.swift in Sources */,
 				432C58FE20B4E89B002E1D89 /* PhotosServiceAPI.swift in Sources */,
 				436DB3A120B87EB200EEE1DB /* PhotoGalleryProtocols.swift in Sources */,
 				432C58D020B4E71A002E1D89 /* FkGalleryUITests.swift in Sources */,
+				431C62FE20B9E4FB00C17FF7 /* Notification.swift in Sources */,
 				43AA3BA320B60A520021DAE5 /* UIFont.swift in Sources */,
 				43AA3BA120B60A520021DAE5 /* UIButton.swift in Sources */,
 				432C58F220B4E89B002E1D89 /* PhotoGalleryPresenter.swift in Sources */,

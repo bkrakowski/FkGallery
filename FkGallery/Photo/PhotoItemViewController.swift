@@ -17,6 +17,7 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
     @IBOutlet weak var takenDateLabel: UILabel?
     @IBOutlet weak var publishedDateLabel: UILabel?
     @IBOutlet weak var tagsLabel: UILabel?
+    @IBOutlet weak var followAuthorButton: UIButton?
     @IBOutlet weak var openLinkButton: UIButton?
     
     var photoItemPresenter: PhotoItemPresenter?
@@ -81,6 +82,8 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
     private func configureView() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
+        followAuthorButton?.applyRoundedButtonStyle()
+        
         openLinkButton?.applySimpleBorderStyle()
         openLinkButton?.isEnabled = photoItemPresenter?.canOpenLink() ?? false
         
@@ -96,6 +99,10 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
         } else {
             self.imageView?.image = placeholderImage
         }
+    }
+    
+    @IBAction func followAuthorPressed() {
+        photoItemPresenter?.followAuthor()
     }
     
     @IBAction func openLinkPressed() {

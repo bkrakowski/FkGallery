@@ -13,6 +13,7 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
     @IBOutlet weak var searchBar: UISearchBar?
     @IBOutlet weak var tableView: UITableView?
     private var textMessageOverlay: TextMessageOverlay?
+    private var authorHeaderView: AuthorHeaderView?
     
     var photoGalleryPresenter: PhotoGalleryPresenter?
     var photoCellPresenter: PhotoCellPresenter?
@@ -46,6 +47,17 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
                 self?.updateView(photoItemsQueried: newValue)
             }
         })
+        
+        disposeBag.append(target.observe(\targetType.followAuthor, options: [.initial, .new]) { [weak self] (target, change) in
+            if let newValue = change.newValue {
+                self?.authorHeaderView?.setAuthor(newValue?.name)
+                if let normalSelf = self {
+                    self?.photoGalleryPresenter?.dismissPhotoItemDetailScene(for: normalSelf)
+                }
+                
+                self?.tableView?.reloadData()
+            }
+        })
     }
     
     private func configureView() {
@@ -65,6 +77,8 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
         let tapHideKeyboard = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapHideKeyboard.cancelsTouchesInView = false
         view?.addGestureRecognizer(tapHideKeyboard)
+        
+        configureAuthorHeader()
     }
     
     @objc func hideKeyboard() {
@@ -94,6 +108,15 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
             } else {
                 textMessageOverlay?.updateText(nil)
             }
+        }
+    }
+    
+    func configureAuthorHeader() {
+        authorHeaderView = Bundle.main.loadNibNamed("AuthorHeaderView", owner: self, options: nil)?.first as? AuthorHeaderView
+        authorHeaderView?.backgroundColor = UIColor.appRed
+        authorHeaderView?.onClear = {
+            self.authorHeaderView?.setAuthor(nil)
+            self.tableView?.reloadData()
         }
     }
 }
@@ -128,6 +151,22 @@ extension PhotoGalleryViewController: UITableViewDelegate {
         }
         
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if let following = authorHeaderView?.following, following {
+            return 30
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let following = authorHeaderView?.following, following {
+            return authorHeaderView
+        } else {
+            return nil
+        }
     }
 }
 

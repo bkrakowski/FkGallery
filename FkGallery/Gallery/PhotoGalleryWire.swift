@@ -31,4 +31,10 @@ class PhotoGalleryWireImpl: PhotoGalleryWire {
             }
         }
     }
+    
+    func dismissPhotoItemDetailScene(for view: PhotoGalleryView) {
+        if let view = view as? PhotoGalleryViewController {
+            view.navigationController?.popToRootViewController(animated: true)
+        }
+    }
 }

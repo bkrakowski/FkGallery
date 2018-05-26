@@ -18,6 +18,13 @@ class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
     
     init(photosService: PhotosServiceAPI) {
         self.photosService = photosService
+        
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(onFollowAuthor(notification:)), name: .followAuthor, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func queryPhotoItemsNow(searchText: String?) {
@@ -40,6 +47,12 @@ class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
             }
         }
     }
+    
+    @objc func onFollowAuthor(notification: NSNotification) {
+        if let follow = notification.userInfo?[Notification.UserInfoKey.authorTupple] as? (authorId: String, name: String) {
+            followAuthor = FollowAuthor(authorId: follow.authorId, name: follow.name)
+        }
+    }
 }
 
 extension PhotoGalleryPresenterImpl: PhotoGalleryPresenter {
@@ -51,6 +64,12 @@ extension PhotoGalleryPresenterImpl: PhotoGalleryPresenter {
         guard let photoGalleryView = photoGalleryView else { return }
         
         photoGalleryWire?.presentPhotoItemDetailScene(for: photoGalleryView, item: item)
+    }
+    
+    func dismissPhotoItemDetailScene(for view: PhotoGalleryView) {
+        guard let photoGalleryView = photoGalleryView else { return }
+        
+        photoGalleryWire?.dismissPhotoItemDetailScene(for: photoGalleryView)
     }
     
     func queryPhotoItems(searchText: String?, asLazySearch: Bool?) {
