@@ -16,9 +16,15 @@
             <rect key="frame" x="0.0" y="0.0" width="424" height="53"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szv-Cy-uCS">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szv-Cy-uCS">
                     <rect key="frame" x="12" y="17.5" width="64" height="18"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2n-DZ-jeV">
+                    <rect key="frame" x="80" y="17" width="276" height="18"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -40,15 +46,10 @@
                         <action selector="clearButtonPressed" destination="iN0-l3-epB" eventType="touchUpInside" id="EmP-4z-v1Q"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2n-DZ-jeV">
-                    <rect key="frame" x="80" y="17.5" width="49" height="18"/>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.87058823529999996" green="0.1019607843" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="qIq-V4-JF3" firstAttribute="leading" secondItem="Q2n-DZ-jeV" secondAttribute="trailing" constant="8" id="G5x-bH-PBG"/>
                 <constraint firstItem="Q2n-DZ-jeV" firstAttribute="leading" secondItem="szv-Cy-uCS" secondAttribute="trailing" constant="4" id="J1a-gx-44L"/>
                 <constraint firstItem="szv-Cy-uCS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="gFv-kJ-oVr"/>
                 <constraint firstItem="qIq-V4-JF3" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hgr-Tb-Pa6"/>

@@ -29,9 +29,9 @@ class PhotoGalleryWireImpl: PhotoGalleryWire {
         return photoGalleryViewController
     }
     
-    func presentPhotoItemDetailScene(for view: PhotoGalleryView, item: PhotoItem) {
+    func presentPhotoItemDetailScene(for view: PhotoGalleryView, item: PhotoItem, followed: Bool) {
         if let view = view as? PhotoGalleryViewController {
-            if let itemView = PhotoItemWireImpl.createPhotoItemScene(item: item) as? UIViewController {
+            if let itemView = PhotoItemWireImpl.createPhotoItemScene(item: item, followed: followed) as? UIViewController {
                 view.navigationController?.pushViewController(itemView, animated: true)
             }
         }

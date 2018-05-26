@@ -144,7 +144,7 @@ extension PhotoGalleryViewController: UITableViewDataSource {
 extension PhotoGalleryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let photoItems = photoGalleryPresenter?.photoItemsSource.photoItemsQueried.photoItems {
-            photoGalleryPresenter?.presentPhotoItemDetailScene(item: photoItems[indexPath.row])
+            photoGalleryPresenter?.presentPhotoItemDetailScene(item: photoItems[indexPath.row], followed: authorHeaderPresenter?.isFollowing ?? false)
         }
         
         tableView.deselectRow(at: indexPath, animated: true)

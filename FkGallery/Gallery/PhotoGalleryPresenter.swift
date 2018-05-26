@@ -57,6 +57,8 @@ class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
     @objc func onFollowAuthor(notification: NSNotification) {
         if let follow = notification.userInfo?[Notification.UserInfoKey.authorTupple] as? (authorId: String, name: String) {
             followAuthor = FollowAuthor(authorId: follow.authorId, name: follow.name)
+        } else {
+            followAuthor = FollowAuthor(authorId: nil, name: nil)
         }
     }
 }
@@ -66,10 +68,10 @@ extension PhotoGalleryPresenterImpl: PhotoGalleryPresenter {
         return self
     }
     
-    func presentPhotoItemDetailScene(item: PhotoItem) {
+    func presentPhotoItemDetailScene(item: PhotoItem, followed: Bool) {
         guard let photoGalleryView = photoGalleryView else { return }
         
-        photoGalleryWire?.presentPhotoItemDetailScene(for: photoGalleryView, item: item)
+        photoGalleryWire?.presentPhotoItemDetailScene(for: photoGalleryView, item: item, followed: followed)
     }
     
     func dismissPhotoItemDetailScene(for view: PhotoGalleryView) {

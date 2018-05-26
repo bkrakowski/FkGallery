@@ -11,7 +11,7 @@ import Foundation
 // Wires galery components together and acts as the Router for scenes.
 protocol PhotoGalleryWire: class {
     static func createPhotoGalleryScene() -> PhotoGalleryView
-    func presentPhotoItemDetailScene(for view: PhotoGalleryView, item: PhotoItem);
+    func presentPhotoItemDetailScene(for view: PhotoGalleryView, item: PhotoItem, followed: Bool)
     func dismissPhotoItemDetailScene(for view: PhotoGalleryView)
 }
 
@@ -25,7 +25,7 @@ protocol PhotoGalleryPresenter {
     
     func queryPhotoItems(searchText: String?, asLazySearch: Bool?)
     func clearFollowedAuthor()
-    func presentPhotoItemDetailScene(item: PhotoItem)
+    func presentPhotoItemDetailScene(item: PhotoItem, followed: Bool)
     func dismissPhotoItemDetailScene(for view: PhotoGalleryView)
 }
 

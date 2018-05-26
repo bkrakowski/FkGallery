@@ -84,6 +84,12 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
         
         followAuthorButton?.applyRoundedButtonStyle()
         
+        if let followed = photoItemPresenter?.isAuthorFollowed(), followed {
+            followAuthorButton?.setTitle("Unfollow Author", for: .normal)
+        } else {
+            followAuthorButton?.setTitle("Follow Author", for: .normal)
+        }
+        
         openLinkButton?.applySimpleBorderStyle()
         openLinkButton?.isEnabled = photoItemPresenter?.canOpenLink() ?? false
         
@@ -102,7 +108,11 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
     }
     
     @IBAction func followAuthorPressed() {
-        photoItemPresenter?.followAuthor()
+        if let followed = photoItemPresenter?.isAuthorFollowed(), followed {
+            photoItemPresenter?.clearFollowing()
+        } else {
+            photoItemPresenter?.followAuthor()
+        }
     }
     
     @IBAction func openLinkPressed() {

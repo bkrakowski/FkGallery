@@ -12,6 +12,7 @@ import UIKit
 class PhotoItemPresenterImpl: PhotoItemSourceObservable {
     var photoItemWire: PhotoItemWire?
     private var item: PhotoItem?
+    private var isFollowed: Bool = false
     
     private let labelsFontSize: CGFloat = 14.0
     
@@ -23,8 +24,10 @@ class PhotoItemPresenterImpl: PhotoItemSourceObservable {
         return formatter
     } ()
     
-    func setPhotoItemModel(item: PhotoItem?) {
+    func setPhotoItem(item: PhotoItem?, followed: Bool) {
         self.item = item
+        self.isFollowed = followed
+        
         updateFromItem(item: item)
     }
     
@@ -79,9 +82,17 @@ extension PhotoItemPresenterImpl: PhotoItemPresenter {
         return self
     }
     
+    func isAuthorFollowed() -> Bool {
+        return isFollowed
+    }
+    
     func followAuthor() {
         let userInfo = [Notification.UserInfoKey.authorTupple: (authorId: item?.authorId, name: item?.author)]
         NotificationCenter.default.post(name: .followAuthor, object: self, userInfo: userInfo)
+    }
+    
+    func clearFollowing() {
+        NotificationCenter.default.post(name: .followAuthor, object: self, userInfo: nil)
     }
     
     func canOpenLink() -> Bool {
