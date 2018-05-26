@@ -26,7 +26,7 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = NSLocalizedString("Photo", comment: "")
+        title = NSLocalizedString("Photo Detail", comment: "")
         
         configureView()
         observePresenter()
@@ -79,12 +79,6 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
     }
     
     private func configureView() {
-        if let photoItemPresenter = photoItemPresenter {
-            if let author = photoItemPresenter.photoItemSource?.rawAuthor {
-                title = author.capitalizingFirstLetter() + NSLocalizedString("' Photo", comment: "Authors photo title")
-            }
-        }
-        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         openLinkButton?.applySimpleBorderStyle()

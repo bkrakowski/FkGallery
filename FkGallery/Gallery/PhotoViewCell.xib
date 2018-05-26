@@ -76,9 +76,9 @@
             </accessibility>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="authorLabel" destination="dwV-jX-qBY" id="a7Z-nh-jok"/>
                 <outlet property="photoView" destination="lZg-Kz-zpk" id="PoL-M1-jsQ"/>
                 <outlet property="tagsLabel" destination="1Fw-Mr-d23" id="jIh-io-q45"/>
-                <outlet property="takenDateLabel" destination="dwV-jX-qBY" id="vEn-Uv-Wvj"/>
                 <outlet property="titleLabel" destination="2Fq-GR-uxs" id="Lrk-E9-DnP"/>
             </connections>
             <point key="canvasLocation" x="58.5" y="129"/>

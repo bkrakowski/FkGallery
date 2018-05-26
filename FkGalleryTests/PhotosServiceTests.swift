@@ -61,7 +61,7 @@ class PhotosServiceTests: XCTestCase {
         XCTAssert(item?.title == "P5202148-Edit.jpg")
         XCTAssert(item?.link == "https://www.flickr.com/photos/mariusvochin/27414413197/")
         XCTAssert(item?.linkSmall == "https://farm1.staticflickr.com/944/27414413197_0bf8b74e67_m.jpg")
-        XCTAssert(item?.author == "nobody@flickr.com (\"marius.vochin\")")
+        XCTAssert(item?.author == "marius.vochin")
         XCTAssert(item?.authorId == "52837777@N02")
         XCTAssert(item?.description == "description")
         XCTAssert(item?.tags == "bike")

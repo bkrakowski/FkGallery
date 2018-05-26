@@ -20,7 +20,7 @@ or alternatively using `brew cask install fastlane`
 ```
 fastlane ios tests
 ```
-`tests` lane runs all tests (Unit Tests and UI Tests)
+Run all tests for FkGallery project
 
 ----
 

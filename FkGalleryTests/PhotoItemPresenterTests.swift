@@ -14,7 +14,6 @@ import XCTest
 class PhotoItemPresenterTests: XCTestCase {
     var photoItemPresenter: PhotoItemPresenterImpl?
     
-    var rawAuthor: String?
     var photoUrl: URL?
     var photoTitle: NSAttributedString?
     var photoAuthor: NSAttributedString?
@@ -33,7 +32,6 @@ class PhotoItemPresenterTests: XCTestCase {
     override func tearDown() {
         photoItemPresenter = nil
 
-        rawAuthor = nil
         photoUrl = nil
         photoTitle = nil
         photoAuthor = nil
@@ -52,16 +50,6 @@ class PhotoItemPresenterTests: XCTestCase {
         
         var expects: [XCTestExpectation] = []
         typealias targetType = PhotoItemSourceObservable
-        
-        let expectRaw = XCTestExpectation(description: "Raw")
-        expects.append(expectRaw)
-        
-        disposeBag.append(target.observe(\targetType.rawAuthor, options: [.new]) { [weak self] (target, change) in
-            if let newValue = change.newValue {
-                self?.rawAuthor = newValue
-                expectRaw.fulfill()
-            }
-        })
         
         let expectUrl = XCTestExpectation(description: "Url")
         expects.append(expectUrl)
@@ -143,7 +131,6 @@ class PhotoItemPresenterTests: XCTestCase {
 
         wait(for: expects, timeout: 3.0)
         
-        XCTAssert(rawAuthor != nil)
         XCTAssert(photoUrl != nil)
         XCTAssert(photoTitle != nil)
         XCTAssert(photoAuthor != nil)
@@ -153,7 +140,6 @@ class PhotoItemPresenterTests: XCTestCase {
         
         XCTAssert(presenter.canOpenLink())
         
-        XCTAssert(rawAuthor == "marius.vochin")
         XCTAssert((photoUrl?.absoluteString) == "https://farm1.staticflickr.com/944/27414413197_0bf8b74e67_m.jpg")
         XCTAssert(photoTitle?.string == "P5202148-Edit.jpg")
         XCTAssert(photoAuthor?.string == "Author\nmarius.vochin")

@@ -32,12 +32,21 @@ class PhotoItemFactory {
             dateTaken: dateTaken,
             description: json["description"].cleanString,
             published: datePublished,
-            author: json["author"].cleanString,
+            author: parseAuthor(json["author"].cleanString),
             authorId: json["author_id"].cleanString,
             tags: json["tags"].cleanString
         )
     
         return item
+    }
+    
+    private static func parseAuthor(_ author: String) -> String {
+        // e.g. "nobody@flickr.com (\"haddock16\")"
+        if let start = author.range(of: "(\""), let stop = author.range(of: "\")") {
+            let cleanAuthor = author[start.upperBound..<stop.lowerBound]
+            return String(cleanAuthor)
+        }
+        return author
     }
 }
 

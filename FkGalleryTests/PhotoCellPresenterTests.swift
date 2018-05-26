@@ -13,7 +13,7 @@ class PhotoCellPresenterTests: XCTestCase {
     
     var photoUrl: String?
     var photoTitle: NSAttributedString?
-    var photoTakenDate: NSAttributedString?
+    var photoAuthor: NSAttributedString?
     var photoTags: NSAttributedString?
     
     override func setUp() {
@@ -34,13 +34,13 @@ class PhotoCellPresenterTests: XCTestCase {
         
         XCTAssert(photoUrl != nil)
         XCTAssert(photoTitle != nil)
-        XCTAssert(photoTakenDate != nil)
+        XCTAssert(photoAuthor != nil)
         XCTAssert(photoTags != nil)
         
         XCTAssert(photoUrl == "https://farm1.staticflickr.com/944/27414413197_0bf8b74e67_m.jpg")
         XCTAssert(photoTitle?.string == "P5202148-Edit.jpg")
         XCTAssert(photoTags?.string == "Tags\nbike")
-        XCTAssert(photoTakenDate?.string == "Taken on\nMay 20, 2018 at 11:42:51 AM")
+        XCTAssert(photoAuthor?.string == "Author\nmarius.vochin")
     }
 }
 
@@ -53,8 +53,8 @@ extension PhotoCellPresenterTests: PhotoCellView {
         photoTitle = text
     }
     
-    func updateTakenDateLabel(text: NSAttributedString?) {
-        photoTakenDate = text
+    func updateAuthorLabel(text: NSAttributedString?) {
+        photoAuthor = text
     }
     
     func updateTagsLabel(text: NSAttributedString?) {

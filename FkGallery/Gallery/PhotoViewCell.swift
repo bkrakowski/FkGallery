@@ -11,7 +11,7 @@ import UIKit
 class PhotoViewCell: UITableViewCell {
     @IBOutlet weak var photoView: UIImageView?
     @IBOutlet weak var titleLabel: UILabel?
-    @IBOutlet weak var takenDateLabel: UILabel?
+    @IBOutlet weak var authorLabel: UILabel?
     @IBOutlet weak var tagsLabel: UILabel?
     
     static let identifier = "PhotoViewCell"
@@ -35,9 +35,9 @@ extension PhotoViewCell: PhotoCellView {
         titleLabel?.accessibilityValue = text?.string
     }
     
-    func updateTakenDateLabel(text: NSAttributedString?) {
-        takenDateLabel?.attributedText = text
-        takenDateLabel?.accessibilityValue = text?.string
+    func updateAuthorLabel(text: NSAttributedString?) {
+        authorLabel?.attributedText = text
+        authorLabel?.accessibilityValue = text?.string
     }
     
     func updateTagsLabel(text: NSAttributedString?) {

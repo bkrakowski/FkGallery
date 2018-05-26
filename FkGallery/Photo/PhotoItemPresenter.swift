@@ -30,7 +30,6 @@ class PhotoItemPresenterImpl: PhotoItemSourceObservable {
     
     private func updateFromItem(item: PhotoItem?) {
         if let item = item {
-            rawAuthor = matchAuthor(author: item.author)
             
             photoUrl = URL(string: item.linkSmall)
             
@@ -38,7 +37,7 @@ class PhotoItemPresenterImpl: PhotoItemSourceObservable {
                 item.title.attributedAccentedText(accents: nil, fontSize: labelsFontSize + 4) :
                 attributedPlaceholder(string: NSLocalizedString("No Title", comment: ""))
             
-            photoAuthor = attributedPara(title: NSLocalizedString("Author", comment: ""), text: matchAuthor(author: item.author))
+            photoAuthor = attributedPara(title: NSLocalizedString("Author", comment: ""), text: item.author)
             
             photoTakenDate = attributedPara(title: NSLocalizedString("Taken on", comment: ""),
                                             text: item.dateTaken != nil ? PhotoItemPresenterImpl.dateFormatter.string(from: item.dateTaken!) : "NA")
@@ -57,15 +56,6 @@ class PhotoItemPresenterImpl: PhotoItemSourceObservable {
             photoPublishedDate = nil
             photoTags = nil
         }
-    }
-    
-    private func matchAuthor(author: String) -> String {
-        // e.g. "nobody@flickr.com (\"haddock16\")"
-        if let start = author.range(of: "(\""), let stop = author.range(of: "\")") {
-            let cleanAuthor = author[start.upperBound..<stop.lowerBound]
-            return String(cleanAuthor)
-        }
-        return author
     }
     
     private func attributedPara(title: String, text: String) -> NSAttributedString {

@@ -13,7 +13,7 @@ import UIKit
 protocol PhotoCellView {
     func updateImage(url: String?)
     func updateTitleLabel(text: NSAttributedString?)
-    func updateTakenDateLabel(text: NSAttributedString?)
+    func updateAuthorLabel(text: NSAttributedString?)
     func updateTagsLabel(text: NSAttributedString?)
 }
 
@@ -41,9 +41,8 @@ class PhotoCellPresenterImpl: PhotoCellPresenter {
                 attributedPlaceholder(string: NSLocalizedString("No Title", comment: ""))
         )
         
-        cellView.updateTakenDateLabel(
-            text: attributedPara(title: NSLocalizedString("Taken on", comment: ""),
-                                 text: item.dateTaken != nil ? PhotoCellPresenterImpl.dateFormatter.string(from: item.dateTaken!) : "NA")
+        cellView.updateAuthorLabel(
+            text: attributedPara(title: NSLocalizedString("Author", comment: ""), text: item.author)
         )
         
         cellView.updateTagsLabel(

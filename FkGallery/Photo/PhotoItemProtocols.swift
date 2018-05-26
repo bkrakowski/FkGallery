@@ -27,7 +27,6 @@ protocol PhotoItemPresenter: class {
 
 // PhotoItemSourceObservable supports KVO
 class PhotoItemSourceObservable: NSObject {
-    @objc dynamic var rawAuthor: String?
     @objc dynamic var photoUrl: URL?
     @objc dynamic var photoTitle: NSAttributedString?
     @objc dynamic var photoAuthor: NSAttributedString?
