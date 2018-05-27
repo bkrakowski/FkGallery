@@ -82,12 +82,12 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
     private func configureView() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        followAuthorButton?.applyRoundedButtonStyle()
-        
         if let followed = photoItemPresenter?.isAuthorFollowed(), followed {
             followAuthorButton?.setTitle(NSLocalizedString("Clear Author Filter", comment: ""), for: .normal)
+            followAuthorButton?.applyRoundedDestructiveButtonStyle()
         } else {
             followAuthorButton?.setTitle(NSLocalizedString("Filter by Author", comment: ""), for: .normal)
+            followAuthorButton?.applyRoundedButtonStyle()
         }
         
         openLinkButton?.applySimpleBorderStyle()
