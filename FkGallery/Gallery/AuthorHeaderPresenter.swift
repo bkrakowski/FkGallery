@@ -48,7 +48,7 @@ extension AuthorHeaderPresenterImpl: AuthorHeaderPresenter {
             authorHeaderView?.updateFollowingLabel(text: NSLocalizedString("Filtered by", comment: ""))
             authorHeaderView?.enableClearButton(enable: true)
         } else {
-            authorHeaderView?.updateFollowingLabel(text: NSLocalizedString("Removing filter...", comment: ""))
+            authorHeaderView?.updateFollowingLabel(text: NSLocalizedString("No filter", comment: ""))
             authorHeaderView?.enableClearButton(enable: false)
         }
     }

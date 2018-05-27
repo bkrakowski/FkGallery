@@ -62,6 +62,7 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
     
     private func configureView() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshPhotoItems))
         
         if let tableView = tableView {
             tableView.register(UINib(nibName: "PhotoViewCell", bundle: nil), forCellReuseIdentifier: PhotoViewCell.identifier)
