@@ -85,9 +85,9 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
         followAuthorButton?.applyRoundedButtonStyle()
         
         if let followed = photoItemPresenter?.isAuthorFollowed(), followed {
-            followAuthorButton?.setTitle("Clear Author Filter", for: .normal)
+            followAuthorButton?.setTitle(NSLocalizedString("Clear Author Filter", comment: ""), for: .normal)
         } else {
-            followAuthorButton?.setTitle("Filter by Author", for: .normal)
+            followAuthorButton?.setTitle(NSLocalizedString("Filter by Author", comment: ""), for: .normal)
         }
         
         openLinkButton?.applySimpleBorderStyle()

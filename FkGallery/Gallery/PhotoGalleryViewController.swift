@@ -101,7 +101,13 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
             SVProgressHUD.dismiss()
             
             self.refreshControl.endRefreshing()
+            
             self.tableView?.reloadData()
+            
+            if photoItemsQueried.photoItems.count > 0 {
+                let topIndex = IndexPath(row: 0, section: 0)
+                self.tableView?.scrollToRow(at: topIndex, at: .top, animated: false)
+            }
             
             if let error = photoItemsQueried.error {
                 textMessageOverlay?.updateText(error.localizedDescription)
