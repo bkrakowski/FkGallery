@@ -28,8 +28,6 @@ class PhotoGalleryViewController: UIViewController, PhotoGalleryView {
         
         configureView()
         observePresenter()
-        
-        photoGalleryPresenter?.queryPhotoItems(searchText: nil, asLazySearch: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

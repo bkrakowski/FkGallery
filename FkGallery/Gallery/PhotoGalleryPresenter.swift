@@ -36,7 +36,11 @@ class PhotoGalleryPresenterImpl: PhotoItemsSourceObservable {
             self.photoItemsQueried = PhotoItemsQueried(state: .querying, photoItems: existingItems, error: nil)
         }
         
-        let tags = searchText?.components(separatedBy: " ")
+        var tags: [String] = []
+        if let tagsString = searchText, tagsString.count > 0 {
+            tags = tagsString.components(separatedBy: " ")
+        }
+
         var authors: [String] = []
         if let author = followAuthor.authorId {
             authors.append(author)
