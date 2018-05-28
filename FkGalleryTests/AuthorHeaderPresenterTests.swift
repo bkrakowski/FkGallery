@@ -41,7 +41,7 @@ class AuthorHeaderPresenterTests: XCTestCase {
 
         authorHeaderPresenter.clearFollowing()
         XCTAssert(authorHeaderPresenter.isFollowing == false)
-        XCTAssert(followingTest == "Removing filter...")
+        XCTAssert(followingTest == "No filter")
         XCTAssert(authorTest == nil)
         XCTAssert(clearEnabled == false)
         XCTAssert(onClearFollowingCalled == true)
