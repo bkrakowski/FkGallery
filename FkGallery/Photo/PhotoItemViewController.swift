@@ -122,6 +122,8 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
     // TODO: Saving images is a seperate feature. Move it out of the view.
     
     @objc func imagePressed() {
+        guard let sourceView = imageView else { return }
+        
         let alertController = UIAlertController(title: NSLocalizedString("Please select photo action", comment: ""), message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Save to Photo Library", comment: ""), style: .default, handler: { (action) in
             if let image = self.imageView?.image {
@@ -129,7 +131,14 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
                 UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
             }
         }))
+        
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
+        
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = sourceView
+            popoverController.sourceRect = CGRect(x: sourceView.frame.midX, y: sourceView.frame.midY, width: 0, height: 0)
+        }
+        
         present(alertController, animated: true)
     }
     
