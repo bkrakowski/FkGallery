@@ -136,7 +136,7 @@ class PhotoItemViewController: UIViewController, PhotoItemView {
         
         if let popoverController = alertController.popoverPresentationController {
             popoverController.sourceView = sourceView
-            popoverController.sourceRect = CGRect(x: sourceView.frame.midX, y: sourceView.frame.midY, width: 0, height: 0)
+            popoverController.sourceRect = CGRect(x: sourceView.bounds.midX, y: sourceView.bounds.midY, width: 0, height: 0)
         }
         
         present(alertController, animated: true)
