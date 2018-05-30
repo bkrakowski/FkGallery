@@ -54,13 +54,12 @@ class FkGalleryUITests: XCTestCase {
         XCTAssertEqual(images.count, 1, "found instead: \(images.debugDescription)")
         
         let texts = app.staticTexts
-        XCTAssertEqual(texts.count, 5, "found instead: \(texts.debugDescription)")
+        // iPhoneX gives 6 texts!
+        XCTAssertTrue([5, 6].contains(texts.count), "found instead: \(texts.debugDescription)")
         
         for i in 0..<texts.count {
             let elem = texts.element(boundBy: i)
             XCTAssertTrue(elem.value != nil)
-            let value = elem.value as! String
-            XCTAssertTrue(value.count > 0)
         }
         
         let back = buttons.firstMatch
@@ -110,9 +109,16 @@ class FkGalleryUITests: XCTestCase {
         
         save.tap()
         
-        _ = app.alerts.firstMatch.waitForExistence(timeout: 3)
-        let alerts = app.alerts
-        XCTAssertEqual(alerts.count, 1, "found instead: \(alerts.debugDescription)")
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        if springboard.buttons.firstMatch.waitForExistence(timeout: 1) {
+            let allowBtn = springboard.buttons["OK"]
+            if allowBtn.exists {
+                allowBtn.tap()
+            }
+        }
+            
+        XCTAssertTrue(app.alerts.firstMatch.waitForExistence(timeout: 1))
+        app.alerts.buttons["OK"].tap()
     }
     
     func testSearchByTag() {
