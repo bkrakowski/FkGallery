@@ -33,7 +33,7 @@ class FkGalleryUITests: XCTestCase {
         let firstCell = cells.element.firstMatch
         
         let textsCell = firstCell.staticTexts
-        XCTAssertEqual(textsCell.count, 3, "found instead: \(textsCell.debugDescription)")
+        XCTAssertEqual(textsCell.count, 4, "found instead: \(textsCell.debugDescription)")
         
         for i in 0..<textsCell.count {
             let elem = textsCell.element(boundBy: i)

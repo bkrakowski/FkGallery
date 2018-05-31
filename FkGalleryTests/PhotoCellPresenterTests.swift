@@ -60,4 +60,8 @@ extension PhotoCellPresenterTests: PhotoCellView {
     func updateTagsLabel(text: NSAttributedString?) {
         photoTags = text
     }
+    
+    func updatePublishedDate(date: Date?) {
+        
+    }
 }

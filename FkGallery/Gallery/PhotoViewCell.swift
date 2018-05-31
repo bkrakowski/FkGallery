@@ -13,8 +13,27 @@ class PhotoViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var authorLabel: UILabel?
     @IBOutlet weak var tagsLabel: UILabel?
+    @IBOutlet weak var timeLabel: UILabel?
     
     static let identifier = "PhotoViewCell"
+    
+    var publishedDate: Date?
+    var timer: Timer?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.timeLabel?.textColor = UIColor.appBlue
+        
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true) { timer in
+            self.timeLabel?.text = self.publishedDate?.timeAgo(doSeconds: false)
+        }
+    }
+
+    deinit {
+        timer?.invalidate()
+    }
 }
 
 
@@ -43,5 +62,12 @@ extension PhotoViewCell: PhotoCellView {
     func updateTagsLabel(text: NSAttributedString?) {
         tagsLabel?.attributedText = text
         tagsLabel?.accessibilityValue = text?.string
+    }
+    
+    func updatePublishedDate(date: Date?) {
+        publishedDate = date
+        let timeAgo = self.publishedDate?.timeAgo(doSeconds: false)
+        self.timeLabel?.text = timeAgo
+        timeLabel?.accessibilityValue = timeAgo
     }
 }

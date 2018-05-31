@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,11 +28,23 @@
                             <constraint firstAttribute="height" constant="180" id="eXf-GY-Ahv"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mAQ-ZS-78J">
-                        <rect key="frame" x="196" y="19" width="175" height="64"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mAQ-ZS-78J">
+                        <rect key="frame" x="196" y="11" width="175" height="80"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efm-Yq-rjf">
+                                <rect key="frame" x="0.0" y="0.0" width="175" height="14"/>
+                                <accessibility key="accessibilityConfiguration" hint="Taken Date" identifier="Taken Date" label="Taken Date">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="XSa-uC-lz1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fq-GR-uxs">
-                                <rect key="frame" x="0.0" y="0.0" width="175" height="16"/>
+                                <rect key="frame" x="0.0" y="20" width="175" height="16"/>
                                 <accessibility key="accessibilityConfiguration" hint="Title" identifier="Title" label="Title">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
@@ -40,8 +52,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taken on" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwV-jX-qBY">
-                                <rect key="frame" x="0.0" y="24" width="175" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwV-jX-qBY">
+                                <rect key="frame" x="0.0" y="42" width="175" height="16"/>
                                 <accessibility key="accessibilityConfiguration" hint="Taken Date" identifier="Taken Date" label="Taken Date">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
@@ -50,7 +62,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Fw-Mr-d23">
-                                <rect key="frame" x="0.0" y="48" width="175" height="16"/>
+                                <rect key="frame" x="0.0" y="64" width="175" height="16"/>
                                 <accessibility key="accessibilityConfiguration" hint="Tags" identifier="Tags" label="Tags">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
@@ -63,7 +75,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="mAQ-ZS-78J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="EFa-gB-kA5"/>
+                    <constraint firstItem="mAQ-ZS-78J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="EFa-gB-kA5"/>
                     <constraint firstItem="mAQ-ZS-78J" firstAttribute="leading" secondItem="lZg-Kz-zpk" secondAttribute="trailing" constant="12" id="KwL-fH-SKf"/>
                     <constraint firstItem="lZg-Kz-zpk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="YlF-Ke-wG1"/>
                     <constraint firstItem="lZg-Kz-zpk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="diR-Mm-Fp6"/>
@@ -79,6 +91,7 @@
                 <outlet property="authorLabel" destination="dwV-jX-qBY" id="a7Z-nh-jok"/>
                 <outlet property="photoView" destination="lZg-Kz-zpk" id="PoL-M1-jsQ"/>
                 <outlet property="tagsLabel" destination="1Fw-Mr-d23" id="jIh-io-q45"/>
+                <outlet property="timeLabel" destination="efm-Yq-rjf" id="7D3-22-aep"/>
                 <outlet property="titleLabel" destination="2Fq-GR-uxs" id="Lrk-E9-DnP"/>
             </connections>
             <point key="canvasLocation" x="58.5" y="129"/>

@@ -15,6 +15,7 @@
 		431C630120B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */; };
 		431C630220B9F9B600C17FF7 /* AuthorHeaderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */; };
 		431C630520BA06FB00C17FF7 /* AuthorHeaderPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C630320BA06FA00C17FF7 /* AuthorHeaderPresenterTests.swift */; };
+		432C176820C048F40099C04F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C176720C048F40099C04F /* Date.swift */; };
 		432C58B020B4E719002E1D89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432C58AF20B4E719002E1D89 /* AppDelegate.swift */; };
 		432C58B720B4E71A002E1D89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B620B4E71A002E1D89 /* Assets.xcassets */; };
 		432C58BA20B4E71A002E1D89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432C58B820B4E71A002E1D89 /* LaunchScreen.storyboard */; };
@@ -114,6 +115,7 @@
 		431B56E620B8DCC200FFA81C /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = SOURCE_ROOT; };
 		431C62FF20B9F9B600C17FF7 /* AuthorHeaderPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorHeaderPresenter.swift; sourceTree = "<group>"; };
 		431C630320BA06FA00C17FF7 /* AuthorHeaderPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorHeaderPresenterTests.swift; sourceTree = "<group>"; };
+		432C176720C048F40099C04F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		432C58AC20B4E719002E1D89 /* FkGallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FkGallery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		432C58AF20B4E719002E1D89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		432C58B420B4E719002E1D89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				43AA3B6F20B52BA40021DAE5 /* UIFont.swift */,
 				438A186420B9D33F002AA57D /* Notification.swift */,
 				43AA3B7D20B5416A0021DAE5 /* JSON.swift */,
+				432C176720C048F40099C04F /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				438A186220B9C4FC002AA57D /* AuthorHeaderView.swift in Sources */,
 				432C58F020B4E89B002E1D89 /* PhotoGalleryPresenter.swift in Sources */,
 				43AA3B7820B52BA40021DAE5 /* UIColor.swift in Sources */,
+				432C176820C048F40099C04F /* Date.swift in Sources */,
 				432C590B20B4E89B002E1D89 /* PhotoViewCell.swift in Sources */,
 				432C58ED20B4E89B002E1D89 /* PhotoItemFactory.swift in Sources */,
 				432C591420B4E89B002E1D89 /* RestServiceAPI.swift in Sources */,
