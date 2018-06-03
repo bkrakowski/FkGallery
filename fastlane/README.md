@@ -16,11 +16,21 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
+### ios all_tests
+```
+fastlane ios all_tests
+```
+Run all tests for FkGallery project
 ### ios tests
 ```
 fastlane ios tests
 ```
-Run all tests for FkGallery project
+Run only unit tests for FkGallery project
+### ios build
+```
+fastlane ios build
+```
+Build FkGallery project
 
 ----
 

@@ -16,8 +16,32 @@
 default_platform(:ios)
 
 platform :ios do
+
   desc "Run all tests for FkGallery project"
-    lane :tests do
-        run_tests(scheme: "FkGallery")
-    end
+  lane :all_tests do
+    cocoapods
+    run_tests(device: "iPhone 7")
+  end
+
+  desc "Run only unit tests for FkGallery project"
+  lane :tests do
+    cocoapods
+    run_tests(device: "iPhone 7", skip_testing: "FkGalleryUITests")
+  end
+
+  desc "Build FkGallery project"
+  lane :build do
+    cocoapods
+
+    cert
+    sigh(app_identifier: '*', adhoc: '1')
+
+    increment_build_number
+
+    run_tests(device: "iPhone 7", skip_testing: "FkGalleryUITests")
+
+    commit_version_bump
+
+  end
+
 end
